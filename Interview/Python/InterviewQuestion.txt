@@ -1,0 +1,345 @@
+1. What is oops concept ?
+
+Object Oriented Programming is a paradigm that provides many concepts such as inheritance, data binding, polymorphism etc.
+
+Object : Any entity that has state and behaviour is called object e.g Pen,Chair
+
+Class : Collection of objects. Its logical entity.
+
+Inheritance : When one object acquires all the properties and behaviours of parent object
+
+Polymorphism : When one task is performed on different way then it is called polymorphism.In java, we use method overloading and method overriding to achieve polymorphism.
+
+Abstraction:Hiding internal details and showing functionality is known as abstraction. For example: phone call, we don't know the internal processing. 
+
+Encapsulation : Binding (or wrapping) code and data together into a single unit is known as encapsulation.A java class is the example of encapsulation. Java bean is the fully encapsulated class because all the data members are private here.
+
+=========================================================================================================
+
+2. What is difference between object-oriented programming language and object-based programming language?
+
+Object based programming language follows all the features of OOPs except Inheritance. JavaScript and VBScript are examples of object based programming languages. 
+
+=========================================================================================================
+
+3. Iterators
+
+In Python programming language, an iterator is an object which implements the iterator protocol. The iterator protocol consists of two methods. The __iter__() method, which must return the iterator object and the next() method, which returns the next element from a sequence. 
+
+Python has several built-in objects, which implement the iterator protocol. For example lists, tuples, strings, dictionaries or files. 
+
+We use for statement for looping over a list.
+
+for i in [1, 2, 3, 4]:
+	print i
+
+If we use it with a string, it loops over its characters.
+
+for c in "python":
+	print i
+
+If we use it with a dictionary, it loops over its keys.
+
+for k in {"x": 1, "y": 2}:
+	 print k
+
+If we use it with a file, it loops over lines of the file.
+
+for line in open("a.txt"):
+	print line
+
+So there are many types of objects which can be used with a for loop. These are called iterable objects.
+There are many functions which consume these iterables.
+",".join(["a", "b", "c"])
+",".join({"x": 1, "y": 2})
+list("python")
+list({"x": 1, "y": 2})
+
+The built-in function iter takes an iterable object and returns an iterator.
+x = iter([1, 2, 3])
+x.next()
+
+=========================================================================================================
+4. Generators
+Generators simplifies creation of iterators. A generator is a function that produces a sequence of results instead of a single value.
+
+In general, a generator is a special routine that can be used to control the iteration behaviour of a loop. A generator is similar to a function returning an array. A generator has parameters, it can be called and it generates a sequence of numbers. But unlike functions, which return a whole array, a generator yields one value at a time. This requires less memory. 
+
+ Generators in Python:
+
+    Are defined with the def keyword
+    Use the yield keyword
+    May use several yield keywords
+    Return an iterator
+
+   def my_generator():
+...     print("Inside my generator")
+...     yield 'a'
+...     yield 'b'
+...     yield 'c'
+
+	for char in my_generator():
+...     print(char)
+...
+Inside my generator
+a
+b
+c
+
+
+
+
+Generator expressions¶ 
+
+generator expressions which is a high performance, memory efficient generalization of list comprehensions and generators.
+
+For example we will try to sum the squares of all numbers from 1 to 9.
+
+sum([x*x for x in range(1,10)])
+
+The example actually first creates a list of the square values in memory and then it iterates over it and finally after sum it frees the memory. You can understand the memory usage in case of a big list.
+
+We can save memory usage by using a generator expression.
+
+sum(x*x for x in range(1,10))
+
+The syntax of generator expression says that always needs to be directly inside a set of parentheses and cannot have a comma on either side. Which basically means both the examples below are valid generator expression usage example.
+
+sum(x*x for x in range(1,10))
+g = (x*x for x in range(1,10))
+
+=========================================================================================================
+5. Itertools
+The itertools module in the standard library provides lot of intersting tools to work with iterators.
+
+chain – chains multiple iterators together.
+
+it1 = iter([1, 2, 3])
+it2 = iter([4, 5, 6])
+itertools.chain(it1, it2)
+[1, 2, 3, 4, 5, 6]
+
+izip – iterable version of zip
+
+for x, y in itertools.izip(["a", "b", "c"], [1, 2, 3]):
+...     print x, y
+...
+a 1
+b 2
+c 3
+
+The built-in function enumerate takes an iteratable and returns an iterator over pairs (index, value) for each value in the source.
+
+for i, c in enumerate(["a", "b", "c"]):
+...     print i, c
+...
+0 a
+1 b
+2 c
+
+=========================================================================================================
+6.Closures
+
+Closures are nothing but functions that are returned by another function. We use closures to remove code duplication. In the following example we create a simple closure for adding numbers.
+
+>>> def add_number(num):
+...     def adder(number):
+...         'adder is a closure'
+...         return num + number
+...     return adder
+...
+>>> a_10 = add_number(10)
+>>> a_10(21)
+31
+>>> a_10(34)
+44
+>>> a_5 = add_number(5)
+>>> a_5(3)
+8
+
+adder is a closure which adds a given number to a pre-defined one.
+
+=========================================================================================================
+
+7.Decorators
+
+Decorator is way to dynamically add some new behavior to some objects. We achieve the same in Python by using closures.
+
+In the example we will create a simple example which will print some statement before and after the execution of a function.
+
+def my_decorator(func):
+...     def wrapper(*args, **kwargs):
+...         print("Before call")
+...         result = func(*args, **kwargs)
+...         print("After call")
+...         return result
+...     return wrapper
+...
+>>> @my_decorator
+... def add(a, b):
+...     "Our add function"
+...     return a + b
+...
+>>> add(1, 3)
+Before call
+After call
+4
+=========================================================================================================
+
+8.What is PEP 8?
+
+PEP 8 is a coding convention, a set of recommendation, about how to write your Python code more readable.
+
+9.What is pickling and unpickling?
+
+Pickle module accepts any Python object and converts it into a string representation and dumps it into a file by using dump function, this process is called pickling.  While the process of retrieving original Python objects from the stored string representation is called unpickling.
+
+10.How memory is managed in Python?
+
+    Python memory is managed by Python private heap space. All Python objects and data structures are located in a private heap. The programmer does not have an access to this private heap and interpreter takes care of this Python private heap.
+    The allocation of Python heap space for Python objects is done by Python memory manager.  The core API gives access to some tools for the programmer to code.
+    Python also have an inbuilt garbage collector, which recycle all the unused memory and frees the memory and makes it available to the heap space.
+
+11.What are the tools that help to find bugs or perform static analysis?
+
+PyChecker is a static analysis tool that detects the bugs in Python source code and warns about the style and complexity of the bug. Pylint is another tool that verifies whether the module meets the coding standard.
+
+12.What is the difference between list and tuple?
+
+The difference between list and tuple is that list is mutable while tuple is not. Tuple can be hashed for e.g as a key for dictionaries.
+
+13.How are arguments passed by value or by reference?
+
+Everything in Python is an object and all variables hold references to the objects. The references values are according to the functions; as a result you cannot change the value of the references. However, you can change the objects if it is mutable.
+
+14. What is Dict and List comprehensions are?
+
+They are syntax constructions to ease the creation of a Dictionary or List based on existing iterable.
+
+15.What are the built-in type does python provides?
+
+There are mutable and Immutable types of Pythons built in types Mutable built-in types
+
+    List
+    Sets
+    Dictionaries
+
+Immutable built-in types
+
+    Strings
+    Tuples
+    Numbers
+
+=========================================================================================================
+
+16.What is namespace in Python?
+
+In Python, every name introduced has a place where it lives and can be hooked for. This is known as namespace. It is like a box where a variable name is mapped to the object placed.  Whenever the variable is searched out, this box will be searched, to get corresponding object.
+
+17. What is lambda in Python?
+It is a single expression anonymous function often used as inline function.
+
+18. Why lambda forms in python does not have statements?
+
+A lambda form in python does not have statements as it is used to make new function object and then return them at runtime.
+
+19. What is unittest in Python?
+
+A unit testing framework in Python is known as unittest.  It supports sharing of setups, automation testing, shutdown code for tests, aggregation of tests into collections etc.
+
+20. In Python what is slicing?
+
+A mechanism to select a range of items from sequence types like list, tuple, strings etc. is known as slicing.
+
+21.What are generators in Python?
+
+The way of implementing iterators are known as generators.  It is a normal function except that it yields expression in the function.
+
+22. What is docstring in Python?
+
+A Python documentation string is known as docstring, it is a way of documenting Python functions, modules and classes.
+
+23.How can you copy an object in Python?
+
+To copy an object in Python, you can try copy.copy () or copy.deepcopy() for the general case. You cannot copy all objects but most of them.
+
+24. Explain how python is interpreted.
+Python program runs directly from the source code. Each type Python programs are executed code is required. Python converts source code written by the programmer into intermediate language which is again translated it into the native language / machine language that is executed. So Python is an Interpreted language. 
+
+25. How can I find the methods or attributes of an object in python?
+Built-in dir() function of Python ,on an instance shows the instance variables as well as the methods and class attributes defined by the instance's class and all its base classes alphabetically. So by any object as argument to dir() we can find all the methods & attributes of the object’s class.
+
+26.Explain how to make Forms in python.
+As python is scripting language forms processing is done by Python. We need to import cgi module to access form fields using FieldStorage class
+
+27.How can we pass optional or keyword parameters from one function to another in Python?
+Gather the arguments using the * and ** specifiers in the function's parameter list. This gives us positional arguments as a tuple and the keyword arguments as a dictionary. Then we can pass these arguments while calling another function by using * and **:
+
+def fun1(a, *tup, **keywordArg):
+...
+keywordArg['width']='23.3c'
+...
+Fun2(a, *tup, **keywordArg) 
+
+28.Explain the role of repr function.
+
+    Python can convert any value to a string by making use of two functions repr() or str().
+    The str() function returns representations of values which are human-readable, while repr() generates representations which can be read by the interpreter.
+    repr() returns a machine-readable representation of values, suitable for an exec command.
+    Following code sniipets shows working of repr() & str() :
+
+30. What is map()
+map executes the function given as the first argument on all the elements of the iterable given as the second argument. If the function given takes in more than 1 arguments, then many iterables are given.  #Follow the link to know more similar functions
+
+>>>a='ayush'
+>>>map(ord,a)
+....  [97, 121, 117, 115, 104]
+>>> print map(lambda x, y: x*y**2, [1, 2, 3], [2, 4, 1])
+....  [4, 32, 3]
+
+=========================================================================================================
+
+31.Monkey-patching
+In Python, the term monkey patch only refers to dynamic modifications of a class or module at runtime, motivated by the intent to patch existing third-party code as a workaround to a bug or feature which does not act as we desire.
+
+# m.py
+class MyClass:
+    def f(self):
+        print "f()"
+
+Then, if we run the monkey-patch testing like this:
+
+>>> import m
+>>> def monkey_f(self):
+	print "monkey_f()"
+
+	
+>>> m.MyClass.f = monkey_f
+>>> obj = m.MyClass()
+>>> obj.f()
+monkey_f()
+>>> 
+
+
+32 . Map,Reduce and Filter ?
+>>> integers = [ x for x in range(11)]
+>>> filter(lambda x: x % 2 == 0, integers)
+[0, 2, 4, 6, 8, 10]
+>>> map(lambda x: x**2, integers)
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+>>> reduce(lambda x, y: x + y, integers)
+55
+>>> 
+In the above example, we defined a simple list of integer values, then we use the standard functions filter(), map() and reduce() to do various things with that list. All of the three functions expect two arguments: A function and a list.
+In the first example, filter() calls our lambda function for each element of the list, and returns a new list that contains only those elements for which the function returned "True". In this case, we get a list of all even numbers.
+In the second example, map() is used to convert our list. The given function is called for every element in the original list, and a new list is created which contains the return values from our lambda function. In this case, it computes x^2 for every element.
+Finally, reduce() is somewhat special. The function for this one must accept two arguments (x and y), not just one. The function is called with the first two elements from the list, then with the result of that call and the third element, and so on, until all of the list elements have been handled. This means that our function is called n-1 times if the list contains n elements. The return value of the last call is the result of the reduce() construct. In the above example, it simply adds the arguments, so we get the sum of all elements.
+
+33. *args(list) and **kwargs(dict)
+Putting *args and/or **kwargs as the last items in our function definition's argument list allows that function to accept an arbitrary number of anonymous and/or keyword arguments.
+Those arguments are called Keyword Arguments. Actually, they are place holders for multiple arguments, and they are useful especially when we need to pass a different number of arguments each time we call the function.
+
+We may want to use *args when we're not sure how many arguments might be passed to our function, i.e. it allows us to pass an arbitrary number of arguments to your function as shown in the example below:
+
+
+
