@@ -1,0 +1,18 @@
+* /home/aparna/tbc/microelectronic_circuits_:_theory_and_applications/ch2/ex2.2/example_2.2/example_2.2.cir
+
+.include D.lib
+v2  net-_r2-pad1_ gnd 10v
+v1  gnd v 10v
+d2 out net-_d1-pad2_ D1N750
+d1 gnd net-_d1-pad2_ D1N750
+r1  v net-_d1-pad2_ 10k
+r2  net-_r2-pad1_ out 5k
+.dc v2 0e-00 10e-00 1e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end

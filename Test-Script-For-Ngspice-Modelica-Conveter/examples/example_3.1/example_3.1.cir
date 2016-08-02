@@ -1,0 +1,15 @@
+* /home/aparna/TBC/old/CH3/EX3.1/example_3.1/example_3.1.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: Fri Sep  4 10:39:05 2015
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+v1  Net-_R1-Pad1_ GND DC		
+v2  GND Net-_R2-Pad2_ DC		
+R1  Net-_R1-Pad1_ out 5k		
+R2  Net-_Q1-Pad3_ Net-_R2-Pad2_ 7.07k		
+Q1  out GND Net-_Q1-Pad3_ NPN		
+
+.end

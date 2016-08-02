@@ -1,0 +1,119 @@
+1. After creating Block.
+
+# Start test_compo
+DEF test_compo U 0 40 Y Y 1 F N
+F0 "U" 0 -150 60 H V C CNN
+F1 "test_compo" 0 0 60 H V C CNN
+F2 "" 0 0 60 H V C CNN
+F3 "" 0 0 60 H V C CNN
+DRAW
+S -300 250 300 -300 0 1 0 N
+ENDDRAW
+ENDDEF
+# End test_compo
+
+2. After Moving the Block.
+
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#
+# test_compo
+#
+DEF test_compo U 0 40 Y Y 1 F N
+F0 "U" 2850 1800 60 H V C CNN
+F1 "test_compo" 2850 1950 60 H V C CNN
+F2 "" 2850 1950 60 H V C CNN
+F3 "" 2850 1950 60 H V C CNN
+DRAW
+S 2550 2200 3150 1650 0 1 0 N
+ENDDRAW
+ENDDEF
+#
+#End Library
+
+3. After adding in & out pins.
+
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#
+# test_compo
+#
+DEF test_compo U 0 40 Y Y 1 F N
+F0 "U" 2850 1800 60 H V C CNN
+F1 "test_compo" 2850 1950 60 H V C CNN
+F2 "" 2850 1950 60 H V C CNN
+F3 "" 2850 1950 60 H V C CNN
+DRAW
+S 2550 2200 3150 1650 0 1 0 N
+X IN 1 2350 1900 200 R 50 50 1 1 I
+X out 2 3350 1900 200 L 50 50 1 1 O
+ENDDRAW
+ENDDEF
+#
+#End Library
+
+4. After increasing size of the block.
+
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#
+# test_compo
+#
+DEF test_compo U 0 40 Y Y 1 F N
+F0 "U" 2850 1800 60 H V C CNN
+F1 "test_compo" 2850 1950 60 H V C CNN
+F2 "" 2850 1950 60 H V C CNN
+F3 "" 2850 1950 60 H V C CNN
+DRAW
+S 2550 2350 3150 1250 0 1 0 N
+X IN 1 2350 1900 200 R 50 50 1 1 I
+X out 2 3350 1900 200 L 50 50 1 1 O
+ENDDRAW
+ENDDEF
+#
+#End Library
+
+5. After adding in2 pin to block.
+
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#
+# test_compo
+#
+DEF test_compo U 0 40 Y Y 1 F N
+F0 "U" 2850 1800 60 H V C CNN
+F1 "test_compo" 2850 1950 60 H V C CNN
+F2 "" 2850 1950 60 H V C CNN
+F3 "" 2850 1950 60 H V C CNN
+DRAW
+S 2550 2350 3150 1250 0 1 0 N
+X IN 1 2350 1900 200 R 50 50 1 1 I
+X in2 2 2350 1550 200 R 50 50 1 1 I
+X out 2 3350 1900 200 L 50 50 1 1 O
+ENDDRAW
+ENDDEF
+#
+#End Library
+
+6. After adding out2 pin.
+
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#
+# test_compo
+#
+DEF test_compo U 0 40 Y Y 1 F N
+F0 "U" 2850 1800 60 H V C CNN
+F1 "test_compo" 2850 1950 60 H V C CNN
+F2 "" 2850 1950 60 H V C CNN
+F3 "" 2850 1950 60 H V C CNN
+DRAW
+S 2550 2350 3150 1250 0 1 0 N
+X IN 1 2350 1900 200 R 50 50 1 1 I
+X in2 2 2350 1550 200 R 50 50 1 1 I
+X out 3 3350 1900 200 L 50 50 1 1 O
+X out2 4 3350 1550 200 L 50 50 1 1 O
+ENDDRAW
+ENDDEF
+#
+#End Library
