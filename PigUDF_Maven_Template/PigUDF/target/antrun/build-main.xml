@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy todir="dist" file="target/pig-udfs.jar" overwrite="true"/>
+</target>
+</project>
