@@ -13,8 +13,7 @@
   <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <pig.version>0.14.0</pig.version>
         <hadoop.version>2.7.0</hadoop.version>
   </properties>
 
@@ -83,7 +82,7 @@
   </build>
 
   <dependencies>
-    <dependency>
+    <!-- <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-hdfs</artifactId>
       <version>${hadoop.version}</version>
@@ -92,16 +91,16 @@
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-client</artifactId>
       <version>${hadoop.version}</version>
-    </dependency>
-    <dependency>
+    </dependency> -->
+    <dependency> 
       <groupId>org.apache.pig</groupId>
       <artifactId>pig</artifactId>
-      <version>0.14.0</version>
+      <version>${pig.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.pig</groupId>
       <artifactId>pigunit</artifactId>
-      <version>0.14.0</version>
+      <version>${pig.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
