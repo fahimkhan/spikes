@@ -142,6 +142,10 @@ for i, c in enumerate(["a", "b", "c"]):
 
 Closures are nothing but functions that are returned by another function. We use closures to remove code duplication. In the following example we create a simple closure for adding numbers.
 
+The technique by which some data ("Hello") gets attached to the code is called closure in Python.
+
+This value in the enclosing scope is remembered even when the variable goes out of scope or the function itself is removed from the current namespace.
+
 >>> def add_number(num):
 ...     def adder(number):
 ...         'adder is a closure'
