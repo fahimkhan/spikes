@@ -1,0 +1,49 @@
+1) What do you mean by a bag in Pig?
+
+Collection of tuples is referred as a bag in Apache Pig
+
+2) Does Pig support multi-line commands?
+
+Yes
+
+3) What are different modes of execution in Apache Pig?
+
+Apache Pig runs in 2 modes- one is the “Pig (Local Mode) Command Mode” and the other is the “Hadoop MapReduce (Java) Command Mode”. Local Mode requires access to only a single machine where all files are installed and executed on a local host whereas MapReduce requires accessing the Hadoop cluster.
+
+4) Explain the need for MapReduce while programming in Apache Pig.
+
+Apache Pig programs are written in a query language known as Pig Latin that is similar to the SQL query language. To execute the query, there is need for an execution engine. The Pig engine converts the queries into MapReduce jobs and thus MapReduce acts as the execution engine and is needed to run the programs.
+
+5) Explain about co-group in Pig.
+
+COGROUP operator in Pig is used to work with multiple tuples. COGROUP operator is applied on statements that contain or involve two or more relations. The COGROUP operator can be applied on up to 127 relations at a time. When using the COGROUP operator on two tables at once-Pig first groups both the tables and after that joins the two tables on the grouped columns.
+
+6) Explain about the BloomMapFile.
+
+BloomMapFile is a class that extends the MapFile class. It is used n HBase table format to provide quick membership test for the keys using dynamic bloom filters.
+
+7) Differentiate between Hadoop MapReduce and Pig
+
+    Pig provides higher level of abstraction whereas MapReduce provides low level of abstraction.
+    MapReduce requires the developers to write more lines of code when compared to Apache Pig.
+    Pig coding approach is comparatively slower than the fully tuned MapReduce coding approach.
+
+Read More in Detail- http://www.dezyre.com/article/-mapreduce-vs-pig-vs-hive/163
+
+8) What is the usage of foreach operation in Pig scripts?
+
+FOREACH operation in Apache Pig is used to apply transformation to each element in the data bag so that respective action is performed to generate new data items.
+
+Syntax- FOREACH data_bagname GENERATE exp1, exp2
+
+9) Explain about the different complex data types in Pig.
+
+Apache Pig supports 3 complex data types-
+
+    Maps- These are key, value stores joined together using #.
+    Tuples- Just similar to the row in a table where different items are separated by a comma. Tuples can have multiple attributes.
+    Bags- Unordered collection of tuples. Bag allows multiple duplicate tuples.
+
+​10) What does Flatten do in Pig?
+
+Sometimes there is data in a tuple or bag and if we want to remove the level of nesting from that data then Flatten modifier in Pig can be used. Flatten un-nests bags and tuples. For tuples, the Flatten operator will substitute the fields of a tuple in place of a tuple whereas un-nesting bags is a little complex because it requires creating new tuples.

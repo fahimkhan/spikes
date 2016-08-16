@@ -1,0 +1,6 @@
+Jhon,28,N
+John,30,Y
+Abhi,27,Y
+Arya,20,N
+Abhi,32,N
+Rustom,21,Y

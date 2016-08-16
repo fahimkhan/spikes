@@ -1,0 +1,49 @@
+1)What are the stable versions of Hadoop?
+
+Release 2.7.1 (stable)
+
+Release 2.4.1
+
+Release 1.2.1 (stable)
+
+2) What is Apache Hadoop YARN?
+
+YARN is a powerful and efficient feature rolled out as a part of Hadoop 2.0.YARN is a large scale distributed system for running big data applications.
+
+3) Is YARN a replacement of Hadoop MapReduce?
+
+YARN is not a replacement of Hadoop but it is a more powerful and efficient technology that supports MapReduce and is also referred to as Hadoop 2.0 or MapReduce 2.
+
+4) What are the additional benefits YARN brings in to Hadoop?
+
+    Effective utilization of the resources as multiple applications can be run in YARN all sharing a common resource.In Hadoop MapReduce there are seperate slots for Map and Reduce tasks whereas in YARN there is no fixed slot. The same container can be used for Map and Reduce tasks leading to better utilization.
+    YARN is backward compatible so all the existing MapReduce jobs.
+    Using YARN, one can even run applications that are not based on the MaReduce model
+
+5)  How can native libraries be included in YARN jobs?
+
+There are two ways to include native libraries in YARN jobs-
+
+1)  By setting the -Djava.library.path on the command line  but in this case there are chances that the native libraries might not be loaded correctly and there is possibility of errors.
+
+2) The better option to include native libraries is to the set the LD_LIBRARY_PATH in the .bashrc file.
+
+6) Explain the differences between Hadoop 1.x and Hadoop 2.x
+
+    In Hadoop 1.x, MapReduce is responsible for both processing and cluster management whereas in Hadoop 2.x processing is taken care of by other processing models and YARN is responsible for cluster management.
+    Hadoop 2.x scales better when compared to Hadoop 1.x with close to 10000 nodes per cluster.
+    Hadoop 1.x has single point of failure problem and whenever the NameNode fails it has to be recovered manually. However, in case of Hadoop 2.x StandBy NameNode overcomes the SPOF problem and whenever the NameNode fails it is configured for automatic recovery.
+    Hadoop 1.x works on the concept of slots whereas Hadoop 2.x works on the concept of containers and can also run generic tasks.
+
+7) What are the core changes in Hadoop 2.0?
+
+Hadoop 2.x provides an upgrade to Hadoop 1.x in terms of resource management, scheduling and the manner in which execution occurs. In Hadoop 2.x the cluster resource management capabilities work in isolation from the MapReduce specific programming logic. This helps Hadoop to share resources dynamically between multiple parallel processing frameworks like Impala and the core MapReduce component. Hadoop 2.x Hadoop 2.x allows workable and fine grained resource configuration leading to efficient and better cluster utilization so that the application can scale to process larger number of jobs.
+
+8) Differentiate between NFS, Hadoop NameNode and JournalNode.
+
+HDFS is a write once file system so a user cannot update the files once they exist either they can read or write to it. However, under certain scenarios in the enterprise environment like file uploading, file downloading, file browsing or data streaming –it is not possible to achieve all this using the standard HDFS. This is where a distributed file system protocol Network File System (NFS) is used. NFS allows access to files on remote machines just similar to how local file system is accessed by applications.
+
+Namenode is the heart of the HDFS file system that maintains the metadata and tracks where the file data is kept across the Hadoop cluster.
+
+StandBy Nodes and Active Nodes communicate with a group of light weight nodes to keep their state synchronized. These are known as Journal Nodes.
+

@@ -1,0 +1,7 @@
+1,Hadoop
+2,Pig
+3,Big Data
+4,Hive
+5,Sql
+6,Apache
+7,MapReduce

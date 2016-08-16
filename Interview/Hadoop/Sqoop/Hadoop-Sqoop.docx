@@ -1,0 +1,88 @@
+
+1. Explain about some important Sqoop commands other than import and export.
+
+	Here we are creating a job with the name my job, which can import the table data from RDBMS table to HDFS. The following command is used to create a job that is importing data from the employee table in the db database to the HDFS file.
+
+	$ Sqoop job --create myjob \
+
+	--import \
+
+	--connect jdbc:mysql://localhost/db \
+
+	--username root \
+
+	--table employee --m 1
+
+	Verify Job (--list)
+
+	‘--list’ argument is used to verify the saved jobs. The following command is used to verify the list of saved Sqoop jobs.
+
+	$ Sqoop job --list
+
+	Inspect Job (--show)
+
+	‘--show’ argument is used to inspect or verify particular jobs and their details. The following command and sample output is used to verify a job called myjob.
+
+	$ Sqoop job --show myjob
+
+	Execute Job (--exec)
+
+	‘--exec’ option is used to execute a saved job. The following command is used to execute a saved job called myjob.
+
+	$ Sqoop job --exec myjob
+
+2. How Sqoop can be used in a Java program?
+
+	The Sqoop jar in classpath should be included in the java code. After this the method Sqoop.runTool () method must be invoked. The necessary parameters should be created to Sqoop programmatically just like for command line.
+
+3. What is the process to perform an incremental data load in Sqoop?
+
+	The process to perform incremental data load in Sqoop is to synchronize the modified or updated data (often referred as delta data) from RDBMS to Hadoop. The delta data can be facilitated through the incremental load command in Sqoop.
+
+	Incremental load can be performed by using Sqoop import command or by loading the data into hive without overwriting it. The different attributes that need to be specified during incremental load in Sqoop are-
+
+	1)Mode (incremental) –The mode defines how Sqoop will determine what the new rows are. The mode can have value as Append or Last Modified.
+	2)Col (Check-column) –This attribute specifies the column that should be examined to find out the rows to be imported.
+	3)Value (last-value) –This denotes the maximum value of the check column from the previous import operation.
+
+4. Is it possible to do an incremental import using Sqoop?
+
+	Yes, Sqoop supports two types of incremental imports-
+
+	1)Append
+	2)Last Modified
+
+	To insert only rows Append should be used in import command and for inserting the rows and also updating Last-Modified should be used in the import command.
+
+5. What is the standard location or path for Hadoop Sqoop scripts?
+
+	/usr/bin/Hadoop Sqoop
+
+6. How can you check all the tables present in a single database using Sqoop?
+
+	The command to check the list of all tables present in a single database using Sqoop is as follows-
+
+	Sqoop list-tables –connect jdbc: mysql: //localhost/user;
+
+7. How are large objects handled in Sqoop?
+
+	Sqoop provides the capability to store large sized data into a single field based on the type of data. Sqoop supports the ability to store-
+
+	1)CLOB ‘s – Character Large Objects
+	2)BLOB’s –Binary Large Objects
+
+	Large objects in Sqoop are handled by importing the large objects into a file referred as “LobFile” i.e. Large Object File. The LobFile has the ability to store records of huge size, thus each record in the LobFile is a large object.
+
+8. Can free form SQL queries be used with Sqoop import command? If yes, then how can they be used?
+
+	Sqoop allows us to use free form SQL queries with the import command. The import command should be used with the –e and – query options to execute free form SQL queries. When using the –e and –query options with the import command the –target dir value must be specified.
+
+9. Differentiate between Sqoop and distCP.
+
+	DistCP utility can be used to transfer data between clusters whereas Sqoop can be used to transfer data only between Hadoop and RDBMS.
+
+10. What are the limitations of importing RDBMS tables into Hcatalog directly?
+
+	There is an option to import RDBMS tables into Hcatalog directly by making use of –hcatalog –database option with the –hcatalog –table but the limitation to it is that there are several arguments like –as-avrofile , -direct, -as-sequencefile, -target-dir , -export-dir are not supported.
+
+11. 

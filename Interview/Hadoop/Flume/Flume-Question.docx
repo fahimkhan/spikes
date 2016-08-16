@@ -1,0 +1,70 @@
+1) Explain about the core components of Flume.
+
+The core components of Flume are –
+
+Event- The single log entry or unit of data that is transported.
+
+Source- This is the component through which data enters Flume workflows.
+
+Sink-It is responsible for transporting data to the desired destination.
+
+Channel- it is the duct between the Sink and Source.
+
+Agent- Any JVM that runs Flume.
+
+Client- The component that transmits event to the source that operates with the agent.
+
+2) Does Flume provide 100% reliability to the data flow?
+
+Yes, Apache Flume provides end to end reliability because of its transactional approach in data flow.
+
+3) How can Flume be used with HBase?
+
+Apache Flume can be used with HBase using one of the two HBase sinks –
+
+    HBaseSink (org.apache.flume.sink.hbase.HBaseSink) supports secure HBase clusters and also the novel HBase IPC that was introduced in the version HBase 0.96.
+    AsyncHBaseSink (org.apache.flume.sink.hbase.AsyncHBaseSink) has better performance than HBase sink as it can easily make non-blocking calls to HBase.
+
+Working of the HBaseSink –
+
+In HBaseSink, a Flume Event is converted into HBase Increments or Puts. Serializer implements the HBaseEventSerializer which is then instantiated when the sink starts. For every event, sink calls the initialize method in the serializer which then translates the Flume Event into HBase increments and puts to be sent to HBase cluster.
+
+Working of the AsyncHBaseSink-
+
+AsyncHBaseSink implements the AsyncHBaseEventSerializer. The initialize method is called only once by the sink when it starts. Sink invokes the setEvent method and then makes calls to the getIncrements and getActions methods just similar to HBase sink. When the sink stops, the cleanUp method is called by the serializer.
+
+4) Explain about the different channel types in Flume. Which channel type is faster?
+
+The 3 different built in channel types available in Flume are-
+
+MEMORY Channel – Events are read from the source into memory and passed to the sink.
+
+JDBC Channel – JDBC Channel stores the events in an embedded Derby database.
+
+FILE Channel –File Channel writes the contents to a file on the file system after reading the event from a source. The file is deleted only  after the contents are successfully delivered to the sink.
+
+MEMORY Channel is the fastest channel among the three however has the risk of data loss. The channel that you choose completely depends on the nature of the big data application and the value of each event.
+
+5) Which is the reliable channel in Flume to ensure that there is no data loss?
+
+FILE Channel is the most reliable channel among the 3 channels JDBC, FILE and MEMORY.
+
+6) Explain about the replication and multiplexing selectors in Flume.
+
+Channel Selectors are used to handle multiple channels. Based on the Flume header value, an event can be written just to a single channel or to multiple channels. If a channel selector is not specified to the source then by default it is the Replicating selector. Using the replicating selector, the same event is written to all the channels in the source’s channels list. Multiplexing channel selector is used when the application has to send different events to different channels.
+
+7) How multi-hop agent can be setup in Flume?
+
+Avro RPC Bridge mechanism is used to setup Multi-hop agent in Apache Flume.
+
+8) Does Apache Flume provide support for third party plug-ins?
+
+Most of the data analysts use Apache Flume has plug-in based architecture as it can load data from external sources and transfer it to external destinations.
+
+9) Is it possible to leverage real time analysis on the big data collected by Flume directly? If yes, then explain how.
+
+Data from Flume can be extracted, transformed and loaded in real-time into Apache Solr servers using MorphlineSolrSink
+
+10) Differentiate between FileSink and FileRollSink
+
+The major difference between HDFS FileSink and FileRollSink is that HDFS File Sink writes the events into the Hadoop Distributed File System (HDFS) whereas File Roll Sink stores the events into the local file system.

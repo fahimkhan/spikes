@@ -1,0 +1,48 @@
+1) Can Apache Kafka be used without Zookeeper?
+
+It is not possible to use Apache Kafka without Zookeeper because if the Zookeeper is down Kafka cannot serve client request.
+
+2) Name a few companies that use Zookeeper.
+
+Yahoo, Solr, Helprace, Neo4j, Rackspace
+
+3) What is the role of Zookeeper in HBase architecture?
+
+In HBase architecture, ZooKeeper is the monitoring server that provides different services like –tracking server failure and network partitions, maintaining the configuration information, establishing communication between the clients and region servers, usability of ephemeral nodes to identify the available servers in the cluster.
+
+4) Explain about ZooKeeper in Kafka
+
+Apache Kafka uses ZooKeeper to be a highly distributed and scalable system. Zookeeper is used by Kafka to store various configurations and use them across the hadoop cluster in a distributed manner. To achieve distributed-ness, configurations are distributed and replicated throughout the leader and follower nodes in the ZooKeeper ensemble. We cannot directly connect to Kafka by bye-passing ZooKeeper because if the ZooKeeper is down it will not be able to serve the client request.
+
+5) Explain how Zookeeper works
+
+ZooKeeper is referred to as the King of Coordination and distributed applications use ZooKeeper to store and facilitate important configuration information updates. ZooKeeper works by coordinating the processes of distributed applications. ZooKeeper is a robust replicated synchronization service with eventual consistency. A set of nodes is known as an ensemble and persisted data is distributed between multiple nodes.
+
+3 or more independent servers collectively form a ZooKeeper cluster and elect a master. One client connects to any of the specific server and migrates if a particular node fails. The ensemble of ZooKeeper nodes is alive till the majority of nods are working. The master node in ZooKeeper is dynamically selected by the consensus within the ensemble so if the master node fails then the role of master node will migrate to another node which is selected dynamically. Writes are linear and reads are concurrent in ZooKeeper.
+
+6) List some examples of Zookeeper use cases.
+
+    Found by Elastic uses Zookeeper comprehensively for resource allocation, leader election, high priority notifications and discovery. The entire service of Found built up of various systems that read and write to   Zookeeper.
+    Apache Kafka that depends on ZooKeeper is used by LinkedIn
+    Storm that relies on ZooKeeper is used by popular companies like Groupon and Twitter.
+
+7) How to use Apache Zookeeper command line interface?
+
+ZooKeeper has a command line client support for interactive use. The command line interface of ZooKeeper is similar to the file and shell system of UNIX. Data in ZooKeeper is stored in a hierarchy of Znodes where each znode can contain data just similar to a file. Each znode can also have children just like directories in the UNIX file system.
+
+Zookeeper-client command is used to launch the command line client. If the initial prompt is hidden by the log messages after entering the command, users can just hit ENTER to view the prompt.
+
+8) What are the different types of Znodes?
+
+There are 2 types of Znodes namely- Ephemeral and Sequential Znodes.
+
+    The Znodes that get destroyed as soon as the client that created it disconnects are referred to as Ephemeral Znodes.
+    Sequential Znode is the one in which sequential number is chosen by the ZooKeeper ensemble and is pre-fixed when the client assigns name to the znode.
+
+9) What are watches?
+
+Client disconnection might be troublesome problem especially when we need to keep a track on the state of Znodes at regular intervals. ZooKeeper has an event system referred to as watch which can be set on Znode to trigger an event whenever it is removed, altered or any new children are created below it.
+
+10) What problems can be addressed by using Zookeeper?
+
+In the development of distributed systems, creating own protocols for coordinating the hadoop cluster results in failure and frustration for the developers. The architecture of a distributed system can be prone to deadlocks, inconsistency and race conditions. This leads to various difficulties in making the hadoop cluster fast, reliable and scalable. To address all such problems, Apache ZooKeeper can be used as a coordination service to write correct distributed applications without having to reinvent the wheel from the beginning.

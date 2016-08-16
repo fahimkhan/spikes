@@ -1,0 +1,112 @@
+				
+								Hadoop Interview Question & Answer
+
+
+				
+				
+1 . What is big data ?
+
+ 	Any amount of data which cannot be handle or process by your system is called Big data for that system.
+
+2 . What is combiner ? 
+
+	Use for optimization of MapReduce Job.It is run on the output of Mapper function. The output with and without combiner always remain same.Thus use of combiner depends purley on the type of analysis we want to do. Eg. You can use combiner while calculating maximum temp but you cannot calculate mean temp.
+
+3 . When does memory excpetion or error occured in Hadoop and How to solve this ?
+
+	If program uses more Java heap memory (greater than assign heap memory) to process the data then MR Job will failed. The default heap memory given is 128m (May change from version to version)
+	To change the default go to  /etc/hadoop/hadoop-env.sh 
+	And Change  
+	export HADOOP_CLIENT_OPTS="-Xmx128m $HADOOP_CLIENT_OPTS"
+	according to your requirement. 
+
+4 . Can we change default block size ?
+
+	Yes, We can change in hdfs-site.xml . It look like this.
+	<property> 
+	<name>dfs.block.size<name> 
+	<value>134217728<value> 
+	<description>Block size<description> 
+	<property>
+
+5 . What is speculative execution ?
+
+	When a task at DataNode is taking more time then Hadoop start the same task at some other DataNode. And whichever complete first Hadoop report that result in output and kill the other task.
+	We can force hadoop not to run speculative execution by changing mapreduce.map.speculative and mapreduce.reduce.speculative in our code.
+
+6 . When to use HIVE ?
+
+	Mostly when you have data ware housing project. 
+
+
+7.  List the various Hadoop daemons and their roles in a Hadoop cluster.
+
+
+
+
+8. What is a block and block scanner in HDFS?
+
+	Block - The minimum amount of data that can be read or written is generally referred to as a “block” in HDFS. The default size of a block in HDFS is 64MB.
+
+	Block Scanner - Block Scanner tracks the list of blocks present on a DataNode and verifies them to find any kind of checksum errors. Block Scanners use a throttling mechanism to reserve disk bandwidth on the datanode.
+
+9. Explain the difference between NameNode, Backup Node and Checkpoint NameNode.
+
+	NameNode: NameNode is at the heart of the HDFS file system which manages the metadata i.e. the data of the files is not stored on the NameNode but rather it has the directory tree of all the files present in the HDFS file system on a hadoop cluster. NameNode uses two files for the namespace-
+
+	fsimage file- It keeps track of the latest checkpoint of the namespace.
+
+	edits file-It is a log of changes that have been made to the namespace since checkpoint.
+
+    Checkpoint Node-
+
+	Checkpoint Node keeps track of the latest checkpoint in a directory that has same structure as that of NameNode’s directory. Checkpoint node creates checkpoints for the namespace at regular intervals by downloading the edits and fsimage file from the NameNode and merging it locally. The new image is then again updated back to the active NameNode. 
+    
+    BackupNode:
+
+	Backup Node also provides check pointing functionality like that of the checkpoint node but it also maintains its up-to-date in-memory copy of the file system namespace that is in sync with the active NameNode.
+
+10. What is commodity hardware?
+	
+	Commodity Hardware refers to inexpensive systems that do not have high availability or high quality. Commodity Hardware consists of RAM because there are specific services that need to be executed on RAM. Hadoop can be run on any commodity hardware and does not require any super computer s or high end hardware configuration to execute jobs.
+
+11. Explain about the process of inter cluster data copying.
+
+	HDFS provides a distributed data copying facility through the DistCP from source to destination. If this data copying is within the hadoop cluster then it is referred to as inter cluster data copying. DistCP requires both source and destination to have a compatible or same version of hadoop.
+
+12. How can you overwrite the replication factors in HDFS?
+
+	The replication factor in HDFS can be modified or overwritten in 2 ways-
+
+	1)Using the Hadoop FS Shell, replication factor can be changed per file basis using the below command-
+
+	$hadoop fs –setrep –w 2 /my/test_file (test_file is the filename whose replication factor will be set to 2)
+
+	2)Using the Hadoop FS Shell, replication factor of all files under a given directory can be modified using the below command-
+
+	3)$hadoop fs –setrep –w 5 /my/test_dir (test_dir is the name of the directory and all the files in this directory will have a replication factor set to 5)
+
+13. Explain the difference between NAS and HDFS.
+
+	
+    NAS runs on a single machine and thus there is no probability of data redundancy whereas HDFS runs on a cluster of different machines thus there is data redundancy because of the replication protocol.
+    NAS stores data on a dedicated hardware whereas in HDFS all the data blocks are distributed across local drives of the machines.
+    In NAS data is stored independent of the computation and hence Hadoop MapReduce cannot be used for processing whereas HDFS works with Hadoop MapReduce as the computations in HDFS are moved to data.
+
+14. Explain what happens if during the PUT operation, HDFS block is assigned a replication factor 1 instead of the default value 3.
+
+	Replication factor is a property of HDFS that can be set accordingly for the entire cluster to adjust the number of times the blocks are to be replicated to ensure high data availability. For every block that is stored in HDFS, the cluster will have n-1 duplicated blocks. So, if the replication factor during the PUT operation is set to 1 instead of the default value 3, then it will have a single copy of data. Under these circumstances when the replication factor is set to 1 ,if the DataNode crashes under any circumstances, then only single copy of the data would be lost.
+
+15. What is the process to change the files at arbitrary locations in HDFS?
+
+	HDFS does not support modifications at arbitrary offsets in the file or multiple writers but files are written by a single writer in append only format i.e. writes to a file in HDFS are always made at the end of the file.
+
+16. Explain about the indexing process in HDFS.
+
+	Indexing process in HDFS depends on the block size. HDFS stores the last part of the data that further points to the address where the next part of data chunk is stored.
+
+17.  What is a rack awareness and on what basis is data stored in a rack?
+
+	All the data nodes put together form a storage area i.e. the physical location of the data nodes is referred to as Rack in HDFS. The rack information i.e. the rack id of each data node is acquired by the NameNode. The process of selecting closer data nodes depending on the rack information is known as Rack Awareness.
+
+	The contents present in the file are divided into data block as soon as the client is ready to load the file into the hadoop cluster. After consulting with the NameNode, client allocates 3 data nodes for each data block. For each data block, there exists 2 copies in one rack and the third copy is present in another rack. This is generally referred to as the Replica Placement Policy.

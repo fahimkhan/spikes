@@ -1,0 +1,6 @@
+Jon,p1,3.3
+Jon,p2,3.5
+Jon,p3,4.0
+Jimmy,p1,3.8
+Jimmy,p2,4.0
+Jimmy,p3,3.0
