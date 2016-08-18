@@ -1,0 +1,58 @@
+----------Architecture of Hive
+
+--MetaStore :
+	Its relational DB
+	Store details of meta data
+	table dfinintion
+	data type info
+	By defaul derby DB
+
+-- HiveQL
+	Allows you to write sql like query
+
+-- Driver
+	Convert SQL like queries into number of Map and Reduce job
+
+--Hive CLI
+	Command line interface
+
+-- Hives allow you to define schema on your data
+-- Uses serializer and deserializer to read and write data
+
+
+-- Hive WareHouse Principle
+	Mata Data about all objects known to Hive, persisted in metastore
+	Along side meta data it has Data
+
+--Supports
+	select
+	limit
+	distinct
+	aliasing
+	regex - to specific col (Not available in relational DB)
+	interchangeable construct. from - select or select from
+	Hive is not case sensitive
+	; to terminate statement
+	Sub query (But only in from clause)
+	Union all (Union is not supported)
+
+-- Create Database
+	
+	CREATE (DATABASE|SCHEMA) [IF NOT EXISTS] database_name
+	[COMMENT some_coment]
+	[LOCATION hdfs_path]
+	[WITH DBPROPERTIES(property_name=property_value..)] ;
+
+	USE database_name;
+
+	DROP (DATABASE|SCHEMA) [IF EXISTS] database_name;
+
+
+-- Create Table
+
+	CREATE [EXTERNAL] TABLE [IF NOT EXISTS] [db_name.]table_name
+	[(col_name data_type [COMMENT col_comment],....)]
+	[PARTITIONED BY (col_name data_type [COMMENT col_comment],....)]
+	[ROW FORMAT row_format] [STORED AS file_format]
+	[LOCATION hdfs_path]
+	[TBLPROPERTIES(property_name=property_value..)];
