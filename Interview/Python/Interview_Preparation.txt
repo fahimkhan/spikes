@@ -1,0 +1,17 @@
+-------------------------------Array Sequence--------------------------------------------
+
+1. Array sequence is Supported by list,tuple,string as all can have indexing
+
+2. Individual byte can be stored and retirve in O(1) time
+
+3. Appropriate memory address can be computed using calculation "start +(cellsize)(index)"
+
+4. Referential Array :- Imagine 100 students with ID and name. We want each cell of array to have same number of bytes. To do that we can array of object reference . when  we do slice we actually referencing the object
+
+5. a.extend(b)  here list a is adding only refrence object of b . Not the actual value.
+
+
+---Dynamic Array : Don't need to specify how large an array is beforehand.
+
+
+-- Amortization : - Single appending element is O(n) operation. Amortization is performing it efficiently.  
