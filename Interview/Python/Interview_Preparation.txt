@@ -15,3 +15,51 @@
 
 
 -- Amortization : - Single appending element is O(n) operation. Amortization is performing it efficiently.  
+
+
+
+-----------------------------Stack , Queues and Deques --------------------------
+
+---- Stack : Order collection of items where addition of item or removal of items always take place at same end.
+	-	LIFO principle
+	- Stack can be used to reverse the order of item
+	- The order of insertion is reverse of order of removal
+	- e.g Web browser has back button
+
+
+--- Queue : 
+	- FIFO
+	- e.g Movie Ticket,
+
+-- deque :
+	- Also known as double ended queue
+	- New items can be added at front or rear end
+	- Similarly can be remove from both end
+
+
+------------------------Linked List-------------------------------------------------
+
+-- Singly Linked List
+	- Collection of node that collectively form a linear sequence
+	- Each node stores the reference to the object that si an element of the sequence,as well as a reference to the next node of sequence
+	- head is first element of Linked list
+	- tail is last element of Linked List
+	- We can identify tail as node has None as its next refrence. This process is called traversing the LL.
+	- Important property is it does not have pre determined size. It uses space proportionally to its current number of element.
+	- Constant time of insertion and deletion in LL , array require O(n) time to do it.
+	- To access an element in linked list you need to take O(k) time from the head of element to kth element.Where as array require constant time operation to access element in array. 
+
+-- Doubly Linked List
+	- Each node keeps explicit refrence to the node before it and reference to the node after it.
+	- Allow greater variety of O(1) - time update operations including insertion and deletions
+
+
+-------------------------------Recursion-----------------------------------------
+
+	- Two main instance of function. One when when recursion is used as technique in which function makes one or more calls to itself.
+	- Second when DS uses smaller instances of exact same type of DS when it represent itself.
+	- Whenever you create an recursive solution it is very important to think about base case.
+	- Because we need to return to base  when all cases are covered
+
+-- Memoization :
+	Refers to remembering results of method calls based on method inputs and then returning the remembered result rather than computing the result again.
