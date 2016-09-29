@@ -41,7 +41,7 @@
 
 -- Singly Linked List
 	- Collection of node that collectively form a linear sequence
-	- Each node stores the reference to the object that si an element of the sequence,as well as a reference to the next node of sequence
+	- Each node stores the reference to the object that is an element of the sequence,as well as a reference to the next node of sequence
 	- head is first element of Linked list
 	- tail is last element of Linked List
 	- We can identify tail as node has None as its next refrence. This process is called traversing the LL.
@@ -63,3 +63,29 @@
 
 -- Memoization :
 	Refers to remembering results of method calls based on method inputs and then returning the remembered result rather than computing the result again.
+
+
+
+------------------------------Tree---------------------------------------------------
+
+--Property
+	- Root,Branches and Leaves
+	- All children of one node independant of another node
+	- Each leaf node is unique
+
+-- Vocabulary
+	- node which you can call as key
+	- node can have additional information we can call it payload
+	- egde connects two node
+	- Every node has incoming edges except root node
+	- Path is ordered list of nodes that are connected by edges
+	- Children - Set of node that has incoming node from same node
+	- Parent - It connects to outgoing edges.
+	- Siblings - Chidren of same node
+	- Leaf Node - Do not have any children
+	- Level of node - level till root
+
+
+---------------Search and Sorting-----------------------------
+
+
