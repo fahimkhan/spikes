@@ -1,0 +1,13 @@
+openkiosk.jar:
+%  content openkiosk %content/ contentaccessible=yes
+
+*  content/openkiosk.xul                  (content/openkiosk.xul)
+   content/preferences.xul                (content/preferences.xul)
+   content/js/content-frame.js            (content/js/content-frame.js)
+   content/js/debug.js                    (content/js/debug.js)
+*  content/js/openkiosk.js                (content/js/openkiosk.js)
+   content/js/preferences.js              (content/js/preferences.js)
+   content/js/session.js                  (content/js/session.js)
+*  content/js/utils.js                    (content/js/utils.js)
+   content/filters.txt                    (content/filters.txt)
+

@@ -1,0 +1,51 @@
+# This file specifies the build flags for Kiosk.  
+
+# sb custom variables
+. $topsrcdir/openkiosk/config/common
+
+export BUILDING_RELEASE=1
+export MOZILLA_OFFICIAL=1
+export MOZ_TELEMETRY_REPORTING=0
+export MOZ_PACKAGE_JSSHELL=1
+
+CC="/usr/local/bin/gcc -m32 -march=pentiumpro"
+CXX="/usr/local/bin/g++ -m32 -march=pentiumpro"
+
+ac_add_options --target=i686-pc-linux
+ac_add_options --host=i686-pc-linux
+ac_add_options --x-libraries=/usr/lib
+
+mk_add_options MOZ_MAKE_FLAGS="-s -j4"
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/../opt-${OK_APP_NAME}-${OK_VERSION}-@CONFIG_GUESS@
+mk_add_options MOZ_PGO=1
+
+ac_add_options --enable-application=openkiosk
+ac_add_options --enable-update-channel=release 
+ac_add_options --enable-update-packaging 
+ac_add_options --enable-crash-reporter
+ac_add_options --enable-release
+ac_add_options --enable-elf-hack
+ac_add_options --enable-default-toolkit=cairo-gtk2
+ac_add_options --enable-official-branding
+
+# apparently used for mozilla automation builds
+ac_add_options --enable-stdcxx-compat
+
+# enable debug symbols
+# export MOZ_DEBUG_SYMBOLS=1
+# ac_add_options --enable-debug-symbols
+# ac_add_options --disable-install-strip
+
+# mar verification requires mar signing and is not a priority now
+# ac_add_options --enable-verify-mar
+
+# build is failing when enabled
+# ac_add_options --enable-warnings-as-errors
+
+# test
+# ac_add_options --disable-tests
+
+# ac_add_options --with-google-api-keyfile=/builds/gapi.data
+# ac_add_options --with-google-oauth-api-keyfile=/builds/google-oauth-api.key 
+# ac_add_options --with-mozilla-api-keyfile=/builds/mozilla-desktop-geoloc-api.key
+

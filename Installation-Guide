@@ -1,0 +1,55 @@
+Hadoop is installed at 
+
+/usr/local/hadoop
+
+Streaming Jar
+/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar
+
+=========================================================================================
+Hive
+/usr/local/hive
+
+to run it type
+
+hive
+
+
+
+=========================================================================================
+Pig
+/usr/local/pig
+
+Local Mode
+pig -x local
+
+Mapreduce Mode
+pig
+or
+pig -x mapreduce
+
+Help
+pig -help
+
+=========================================================================================
+HBASE
+/usr/local/hbase
+
+<property>
+        <name>hbase.rootdir</name>
+        <value>file:///home/phantom/HBASE/hbase</value>
+</property>
+
+<property>
+        <name>hbase.zookeeper.property.dataDir</name>
+        <value>/home/phantom/HBASE/zookeeper</value>
+</property>
+
+
+=========================================================================================
+
+Avro,lepl
+Installed using pip
+=========================================================================================
+Bottle,Pymongo installed using pip
+
+Snappy - Snappy is a compression/decompression library

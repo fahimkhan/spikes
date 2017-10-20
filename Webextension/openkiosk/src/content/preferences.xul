@@ -1,0 +1,474 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+<!-- OpenKiosk panel -->
+
+<script type="application/javascript" src="chrome://openkiosk/content/js/debug.js"/>
+<script type="application/javascript" src="chrome://openkiosk/content/js/utils.js"/>
+<script type="application/javascript" src="chrome://openkiosk/content/js/preferences.js"/>
+
+<html:style>
+<![CDATA[
+  .indent
+  {
+    margin-left : 40px;
+  }
+
+  .top 
+  {
+    margin-top : 10px;
+  }
+
+  .pad-top
+  {
+    padding-top : 10px;
+  }
+
+  .space
+  {
+    margin-left : 10px;
+  }
+
+  .border-top
+  {
+    border-top : 1px solid var(--in-content-header-border-color);
+  }
+
+  .border
+  {
+    border : 1px solid var(--in-content-header-border-color);
+  }
+
+  #openkioskPrefs
+  {
+    min-height: 600px;"  
+  }
+
+  #exit
+  {
+    border : 1px solid #b10000;
+  }
+
+  .bottom,
+  caption
+  {
+    margin-bottom : 10px;
+  }
+
+  .url,
+  .filters
+  {
+    min-width : 500px;
+  }
+
+  .okcolumn
+  {
+    width : 100px;
+  }
+
+  .debug { border : 1px solid red; }
+]]>
+</html:style>
+
+<preferences id="openkioskPreferences" hidden="true" data-category="paneOpenKiosk">
+  <preference id="openkiosk.preferences.selectedTabIndex"
+              name="openkiosk.preferences.selectedTabIndex"
+              type="int"/>
+  <preference id="openkiosk.tabs.enabled"
+              name="openkiosk.tabs.enabled"
+              type="bool"/>
+  <preference id="openkiosk.attractscreen.enabled"
+              name="openkiosk.attractscreen.enabled"
+              type="bool"/>
+  <preference id="openkiosk.attractscreen.url"
+              name="openkiosk.attractscreen.url"
+              type="string"/>
+  <preference id="openkiosk.fullscreen.enabled"
+              name="openkiosk.fullscreen.enabled"
+              type="bool"/>
+  <preference id="openkiosk.redirectscreen.enabled"
+              name="openkiosk.redirectscreen.enabled"
+              type="bool"/>
+  <preference id="openkiosk.redirectscreen.url"
+              name="openkiosk.redirectscreen.url"
+              type="string"/>
+  <preference id="openkiosk.filters.enabled"
+              name="openkiosk.filters.enabled"
+              type="bool"/>
+  <preference id="openkiosk.filters.whitelist.enabled"
+              name="openkiosk.filters.whitelist.enabled"
+              type="bool"/>
+  <preference id="openkiosk.javascript.enabled"
+              name="openkiosk.javascript.enabled"
+              type="bool"/>
+  <preference id="openkiosk.filters.protocol.about.enabled"
+              name="openkiosk.filters.protocol.about.enabled"
+              type="bool"/>
+  <preference id="openkiosk.filters.protocol.data.enabled"
+              name="openkiosk.filters.protocol.data.enabled"
+              type="bool"/>
+  <preference id="openkiosk.filters.protocol.email.enabled"
+              name="openkiosk.filters.protocol.email.enabled"
+              type="bool"/>
+  <preference id="openkiosk.filters.protocol.file.enabled"
+              name="openkiosk.filters.protocol.file.enabled"
+              type="bool"/>
+  <preference id="openkiosk.filters.protocol.ftp.enabled"
+              name="openkiosk.filters.protocol.ftp.enabled"
+              type="bool"/>
+  <preference id="openkiosk.filters.protocol.res.enabled"
+              name="openkiosk.filters.protocol.res.enabled"
+              type="bool"/>
+  <preference id="openkiosk.filters.protocol.viewsource.enabled"
+              name="openkiosk.filters.protocol.viewsource.enabled"
+              type="bool"/>
+  <preference id="openkiosk.filters.protocol.javascript.enabled"
+              name="openkiosk.filters.protocol.javascript.enabled"
+              type="bool"/>
+  <preference id="openkiosk.session.inactiveTerminal.enabled"
+              name="openkiosk.session.inactiveTerminal.enabled"
+              type="bool"/>
+  <preference id="openkiosk.session.inactiveTerminal.minutes"
+              name="openkiosk.session.inactiveTerminal.minutes"
+              type="int"/>
+  <preference id="openkiosk.session.inactiveTerminal.seconds"
+              name="openkiosk.session.inactiveTerminal.seconds"
+              type="int"/>
+  <preference id="openkiosk.session.inactiveTerminal.warn.enabled"
+              name="openkiosk.session.inactiveTerminal.warn.enabled"
+              type="bool"/>
+  <preference id="openkiosk.session.inactiveTerminal.warn.seconds"
+              name="openkiosk.session.inactiveTerminal.warn.seconds"
+              type="int"/>
+  <preference id="openkiosk.session.diskcache.enabled"
+              name="openkiosk.session.diskcache.enabled"
+              type="bool"/>
+  <preference id="openkiosk.session.history.enabled"
+              name="openkiosk.session.history.enabled"
+              type="bool"/>
+  <preference id="openkiosk.session.cookies.enabled"
+              name="openkiosk.session.cookies.enabled"
+              type="bool"/>
+  <preference id="openkiosk.session.aup.enabled"
+              name="openkiosk.session.aup.enabled"
+              type="bool"/>
+  <preference id="openkiosk.session.aup.url"
+              name="openkiosk.session.aup.url"
+              type="string"/>
+  <preference id="openkiosk.ui.urlbar.enabled"
+              name="openkiosk.ui.urlbar.enabled"
+              type="bool"/>
+  <preference id="openkiosk.ui.personalbar.enabled"
+              name="openkiosk.ui.personalbar.enabled"
+              type="bool"/>
+  <preference id="openkiosk.ui.context.search.enabled"
+              name="openkiosk.ui.context.search.enabled"
+              type="bool"/>
+  <preference id="openkiosk.ui.personalbar.bookmarks.enabled"
+              name="openkiosk.ui.personalbar.bookmarks.enabled"
+              type="bool"/>
+  <preference id="openkiosk.print.silent.enabled"
+              name="openkiosk.print.silent.enabled"
+              type="bool"/>
+  <preference id="openkiosk.print.web.enabled"
+              name="openkiosk.print.web.enabled"
+              type="bool"/>
+  <preference id="openkiosk.keys.navigation.enabled"
+              name="openkiosk.keys.navigation.enabled"
+              type="bool"/>
+  <preference id="openkiosk.admin.clearsession.onexit.enabled"
+              name="openkiosk.admin.clearsession.onexit.enabled"
+              type="bool"/>
+  <preference id="openkiosk.downloads.enabled"
+              name="openkiosk.downloads.enabled"
+              type="bool"/>
+  <preference id="openkiosk.file.upload.enabled"
+              name="openkiosk.file.upload.enabled"
+              type="bool"/>
+</preferences>
+
+
+<!--
+  <stringbundle id="bundlePreferences" src="chrome://browser/locale/preferences/preferences.properties"/>
+-->
+
+<menupopup id="openkioskContextMenu">
+  <menuitem labe="test" />
+</menupopup>
+
+<vbox flex="1" id="header-openkiosk" hidden="true" data-category="paneOpenKiosk">
+<hbox class="header">
+  <label class="header-name" flex="1">&ok.label;</label>
+  <!--
+  <button label="Quit" oncommand="OpenKioskPreferences.quit();" />
+  <button class="help-button" aria-label="help"/>
+  -->
+</hbox>
+
+<tabbox id="openkioskPrefs"
+        handleCtrlTab="false"
+        handleCtrlPageUpDown="false"
+        flex="1">
+
+  <tabs id="tabsElement">
+    <tab id="screens" label="&ok.screens.label;"/>
+    <tab id="filters" label="&ok.filters.label;"/>
+    <tab id="session" label="&ok.session.label;"/>
+    <tab id="customize" label="&ok.customize.label;"/>
+    <tab id="admin" label="&ok.admin.label;"/>
+    <tab id="about" label="&ok.about.label;" />
+  </tabs>
+
+  <tabpanels flex="1">
+    <!-- ****** SCREENS ****** -->
+    <tabpanel id="screenPanel" orient="vertical" flex="1">
+      <!-- Attract -->
+      <groupbox id="attractScreen" align="start">
+        <caption><label>&ok.attract.label;</label></caption>
+        <checkbox id="enableAttractScreen"
+                  label="&ok.attract.enable.label;"
+                  preference="openkiosk.attractscreen.enabled"/>
+        <textbox id="attract-url" class="indent url" value="" preference="openkiosk.attractscreen.url"/>
+        <description>&ok.attract.description;</description>
+      </groupbox>
+      <!-- Full Screen -->
+      <groupbox id="fullScreen" align="start">
+        <caption><label>&ok.full.label;</label></caption>
+        <checkbox id="enableFullScreen"
+                  label="&ok.full.enable.label;"
+                  preference="openkiosk.fullscreen.enabled"/>
+        <description>&ok.full.description;</description>
+      </groupbox>
+      <!-- Redirect Screen -->
+      <groupbox id="redirectScreen" align="start">
+        <caption><label>&ok.redirect.label;</label></caption>
+        <checkbox id="enableRedirectScreen"
+                  label="&ok.redirect.enable.label;"
+                  preference="openkiosk.redirectscreen.enabled"/>
+        <textbox id="redirect-url" class="indent url" value="" preference="openkiosk.redirectscreen.url"/>
+        <description>&ok.redirect.description;</description>
+      </groupbox>
+    </tabpanel>
+
+    <!-- ****** FILTERS ****** -->
+    <tabpanel id="filtersPanel" orient="vertical" flex="1">
+      <!-- Enable Filters -->
+      <groupbox id="filters" align="start">
+        <caption><label>&ok.url.filters.label;</label></caption>
+        <checkbox id="enableFilters"
+                  label="&ok.url.filters.enable.label;"
+                  preference="openkiosk.filters.enabled"/>
+        <radiogroup class="indent top" preference="openkiosk.filters.whitelist.enabled" orient="horizontal">
+          <radio id="whitelist" label="&ok.whitelist.label;" value="true"/>
+          <radio id="blacklist" label="&ok.blacklist.label;" value="false"/>
+        </radiogroup>
+        <description>&ok.filters.description;</description>
+        <textbox id="filtersEdit" multiline="true" cols="100" rows="10" oninput="OpenKioskPreferences.handleFiltersTextInput();" />
+      </groupbox>
+      <hbox align="right" flex="1">
+        <button id="filtersSaveButton" label="&ok.filters.button;" oncommand="OpenKioskPreferences.handleFiltersFile(this);" />
+      </hbox>
+      <!-- Enable Javascript -->
+      <groupbox id="javascript" align="start">
+        <caption><label>&ok.javascript.label;</label></caption>
+        <checkbox id="enableJavascript"
+                  label="&ok.javascript.enable.label;"
+                  preference="openkiosk.javascript.enabled"/>
+      </groupbox>
+      <!-- Protocol Filters -->
+      <groupbox id="networkProtocolFilters" align="start">
+        <caption><label>&ok.protocols.enable.label;</label></caption>
+        <grid class="filters">
+          <columns>
+            <column class="okcolumn" flex="1"/>
+            <column class="okcolumn" flex="1"/>
+            <column class="okcolumn" flex="1"/>
+            <column class="okcolumn" flex="1"/>
+          </columns>
+          <rows>
+            <row>
+              <checkbox id="enableAbout"
+                        label="&ok.protocol.about.label;"
+                        preference="openkiosk.filters.protocol.about.enabled"/>
+              <checkbox id="enableData"
+                        label="&ok.protocol.data.label;"
+                        preference="openkiosk.filters.protocol.data.enabled"/>
+              <checkbox id="enableEmail"
+                        label="&ok.protocol.email.label;"
+                        preference="openkiosk.filters.protocol.email.enabled"/>
+              <checkbox id="enableFile"
+                        label="&ok.protocol.file.label;"
+                        preference="openkiosk.filters.protocol.file.enabled"/>
+            </row>
+            <row>
+              <checkbox id="enableFTP"
+                        label="&ok.protocol.ftp.label;"
+                        preference="openkiosk.filters.protocol.ftp.enabled"/>
+              <checkbox id="enableJavascript"
+                        label="&ok.protocol.javascript.label;"
+                        preference="openkiosk.filters.protocol.javascript.enabled"/>
+              <checkbox id="enableResource"
+                        label="&ok.protocol.res.label;"
+                        preference="openkiosk.filters.protocol.res.enabled"/>
+              <checkbox id="enableViewSource"
+                        label="&ok.protocol.viewsource.label;"
+                        preference="openkiosk.filters.protocol.viewsource.enabled"/>
+            </row>
+          </rows>
+        </grid>
+      </groupbox>
+    </tabpanel>
+
+    <!-- ****** SESSIONS ****** -->
+    <tabpanel id="sessionPanel" orient="vertical" flex="1">
+      <!-- Reset Session -->
+      <groupbox id="session" align="start">
+        <caption><label>&ok.session.reset.label;</label></caption>
+        <checkbox id="inactiveTerminal"
+                  label="&ok.session.inactive.label;"
+                  preference="openkiosk.session.inactiveTerminal.enabled"/>
+        <hbox class="indent" align="center">
+          <label value="&ok.session.after.label;"/>
+          <textbox size="2" maxlength="2" type="number" preference="openkiosk.session.inactiveTerminal.minutes"/>
+          <label value="&ok.session.min.label;"/>
+          <textbox class="int" size="2" maxlength="2" type="number" max="59" preference="openkiosk.session.inactiveTerminal.seconds"/>
+          <label value="&ok.session.sec.label;"/>
+        </hbox>
+        <checkbox id="enableWarning"
+                  label="&ok.session.warn.label;"
+                  preference="openkiosk.session.inactiveTerminal.warn.enabled"/>
+        <hbox class="indent" align="center">
+          <label value="&ok.session.countdown.label;"/><textbox size="2" maxlength="2" type="number" max="60" preference="openkiosk.session.inactiveTerminal.warn.seconds"/><label value="&ok.session.sec.label;"/>
+        </hbox>
+      </groupbox>
+      <!-- Cache -->
+      <groupbox id="cache" align="start">
+        <caption><label>&ok.session.cache.label;</label></caption>
+        <checkbox id="diskCache"
+                  label="&ok.session.disk.enable.label;"
+                  preference="openkiosk.session.diskcache.enabled"/>
+          <label value="&ok.session.disk.label;" />
+        <checkbox id="history"
+                  label="&ok.session.history.enable.label;"
+                  preference="openkiosk.session.history.enabled"/>
+          <label value="&ok.session.history.label;" />
+        <checkbox id="cookies"
+                  label="&ok.session.cookies.enable.label;"
+                  preference="openkiosk.session.cookies.enabled"/>
+          <label value="&ok.session.cookies.label;" />
+      </groupbox>
+      <!-- Acceptable Use Policy (AUP) -->
+      <groupbox id="session" align="start">
+        <caption><label>&ok.session.aup.label;</label></caption>
+        <checkbox id="aup"
+                  label="&ok.session.aup.enable.label;"
+                  preference="openkiosk.session.aup.enabled"/>
+        <description>&ok.session.aup.description;</description>
+        <hbox align="center">
+          <description>&ok.session.aup.url.description;</description>
+          <textbox id="aup-url" class="indent url" value="" preference="openkiosk.session.aup.url"/>
+        </hbox>
+      </groupbox>
+    </tabpanel>
+
+    <!-- ****** CUSTOMIZE ****** -->
+    <tabpanel id="customizePanel" orient="vertical" flex="1">
+      <!-- Tabbed Browsing -->
+      <groupbox id="tabbed-browsing" align="start">
+        <caption><label>&ok.tabs.label;</label></caption>
+        <checkbox id="enableTabs"
+                  label="&ok.tabs.enable.label;"
+                  preference="openkiosk.tabs.enabled"
+                  onclick="Services.prefs.setIntPref('browser.link.open_newwindow', !this.checked ? 3 : 1);"/>
+      </groupbox>
+      <groupbox id="urlbar" align="start">
+        <caption><label>&ok.custom.urlbar.label;</label></caption>
+        <checkbox id="enableURLBar"
+                  label="&ok.custom.urlbar.enable.label;"
+                  preference="openkiosk.ui.urlbar.enabled"/>
+      </groupbox>
+      <groupbox id="personalbar" align="start">
+        <caption><label>&ok.custom.pt.label;</label></caption>
+        <checkbox id="enablePersonalbar"
+                  label="&ok.custom.pt.enable.label;"
+                  preference="openkiosk.ui.personalbar.enabled"/>
+        <checkbox id="enableBookmarks"
+                  class="indent"
+                  label="&ok.custom.pt.bookmarks.enable.label;"
+                  preference="openkiosk.ui.personalbar.bookmarks.enabled"/>
+      </groupbox>
+      <groupbox id="toolbar" align="start">
+        <caption><label>&ok.custom.tb.label;</label></caption>
+        <button label="&ok.custom.tb.button.label;" onclick="OpenKioskPreferences.customizeToolbar();" />
+      </groupbox>
+      <groupbox id="context" align="start">
+        <caption><label>&ok.custom.context.label;</label></caption>
+        <checkbox id="enableSearchContext"
+                  label="&ok.custom.context.enable.label;"
+                  preference="openkiosk.ui.context.search.enabled"/>
+      </groupbox>
+    </tabpanel>
+
+    <!-- ****** ADMIN ****** -->
+    <tabpanel id="adminPanel" orient="vertical" flex="1">
+      <!-- Controls -->
+      <groupbox id="controls" align="start">
+        <caption><label>&ok.admin.controls.label;</label></caption>
+        <vbox>
+          <label value="&ok.admin.password.label;" />
+          <hbox>
+            <textbox id="password" type="password" value="" oninput="OpenKioskPreferences.setPassword(this.value);"/> 
+            <spacer flex="1" />
+            <button class="space" label="&ok.admin.button.reset.label;" oncommand="OpenKioskPreferences.resetPassword();" />
+          </hbox>
+        </vbox>
+      </groupbox>
+      <groupbox id="printing" align="start">
+        <caption><label>&ok.admin.print.label;</label></caption>
+        <checkbox id="enableSilentPrint"
+                  label="&ok.admin.print.silent.enable.label;"
+                  preference="openkiosk.print.silent.enabled"/>
+        <checkbox id="enableWebPrint"
+                  label="&ok.admin.print.web.enable.label;"
+                  preference="openkiosk.print.web.enabled"/>
+      </groupbox>
+      <groupbox id="navKeys" align="start">
+        <caption><label>&ok.admin.navkeys.label;</label></caption>
+        <checkbox id="enableNavKeys"
+                  label="&ok.admin.navkeys.enable.label;"
+                  preference="openkiosk.keys.navigation.enabled"/>
+      </groupbox>
+      <groupbox id="downloads" align="start">
+        <caption><label>&ok.admin.download.label;</label></caption>
+        <checkbox id="enableDownloads"
+                  label="&ok.admin.download.enable.label;"
+                  preference="openkiosk.downloads.enabled"/>
+      </groupbox>
+      <groupbox id="fileUpload" align="start">
+        <caption><label>&ok.admin.upload.label;</label></caption>
+        <checkbox id="enableFileUpload"
+                  label="&ok.admin.upload.enable.label;"
+                  preference="openkiosk.file.upload.enabled"/>
+      </groupbox>
+      <groupbox id="adminMode" align="start">
+        <caption><label>&ok.admin.exit.label;</label></caption>
+        <checkbox id="enableResetOnExit"
+                  label="&ok.admin.reset.enable.label;"
+                  preference="openkiosk.admin.clearsession.onexit.enabled"/>
+      </groupbox>
+    </tabpanel>
+
+    <!-- ****** ABOUT ****** -->
+    <tabpanel id="aboutPanel" orient="vertical" flex="1">
+      <browser src="about:" style="min-height: 600px;"/>
+    </tabpanel>
+  </tabpanels>
+</tabbox>
+
+<hbox flex="1" align="right" class="top border-top pad-top">
+  <button label="&ok.shutdown.button;" oncommand="OpenKioskPreferences.quit();" onkeypress="if (event.keyCode == 13) OpenKioskPreferences.quit();"/>
+  <button id="exit" label="&ok.exit.button;" oncommand="OpenKioskPreferences.exit();" onkeypress="if (event.keyCode == 13) OpenKioskPreferences.exit();"/>
+</hbox>
+
+</vbox>

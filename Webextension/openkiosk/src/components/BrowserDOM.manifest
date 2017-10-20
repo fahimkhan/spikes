@@ -1,0 +1,3 @@
+component {5ef66ec6-8c35-4f37-923d-74bfc7e0a6a3} BrowserDOM.js
+contract @mozdevgroup.com/openkioskdom;1 {5ef66ec6-8c35-4f37-923d-74bfc7e0a6a3}
+category JavaScript-global-property OpenKiosk @mozdevgroup.com/openkioskdom;1

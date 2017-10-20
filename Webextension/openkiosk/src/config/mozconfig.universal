@@ -1,0 +1,18 @@
+. $topsrcdir/browser/config/mozconfigs/macosx-universal/release
+
+. $topsrcdir/openkiosk/config/common
+
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/../opt-${OK_APP_NAME}-${OK_VERSION}-@CONFIG_GUESS@
+
+ac_add_options --disable-tests
+ac_add_options --enable-macos-target=10.7
+ac_add_options --enable-application=openkiosk
+
+if [ "$TARGET_CPU" = "x86_64" ]; then
+  # mk_add_options "export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/rust64/lib"
+  export RUSTC="/usr/local/rust64/bin/rustc"
+else
+  export RUSTC="/usr/local/bin/rustc"
+fi
+
+

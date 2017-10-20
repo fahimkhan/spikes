@@ -1,0 +1,53 @@
+# Here is a sample URL whitelist file
+# This is a comment
+#
+# STRICT - only an exact URL match will be let through, though it is tolerant of trailing slashes
+#    ALL - all pages from a specified path will be let through
+#        - The * wildcard will do a domain match, but only with the ALL filter
+# brooklynmuseum.org = www.brooklynmuseum.org
+# JAVASCRIPT - Allow javascript to run on the page (default)
+# NOJAVASCRIPT - Block javascript from running on page
+# http protocol is assumed other protocols like https:// MUST be specifically added
+
+# SYNTAX FORMAT 
+# allowed[HOST, ALL/STRICT, JAVASCRIPT/NOJAVASCRIPT]; 
+
+# use specific protocol if not assuming http:// 
+# eg: https://
+# most sites today are not using http:// and instead redirect to https:// 
+# so ensure the correct protocol for the site you want to filter
+# for example you might allow www.google.com but that url redirects to https://www.google.com
+# which will be blocked if the https:// protocol is not set here
+
+# Some sample entries:
+
+# using ALL and JAVASCRIPT
+allowed[www.mozdevgroup.com, ALL, JAVASCRIPT];
+
+# although an ALL declaration is used above this declaration this will 
+# specifically block javascript for this url
+allowed[https://www.mozdevgroup.com/dropbox/test/js.html, STRICT, NOJAVASCRIPT];
+
+allowed[www.mozilla.org/projects/firefox/, STRICT, NOJAVASCRIPT];
+
+# JAVASCRIPT is enabled by default
+allowed[*.brooklynmuseum.org/, ALL];
+
+# JAVASCRIPT is enabled by default
+allowed[*.mozdev.org/, ALL];
+
+# only this page will be displayed
+allowed[www.mozilla.org/en-US/thunderbird/, STRICT, JAVASCRIPT];
+
+# entire site and all subdomains will be allowed with javascript disabled
+allowed[https://slashdot.org, ALL, NOJAVASCRIPT];
+
+# entire site and all subdomains will be allowed with javascript enabled
+allowed[https://*.google.com, ALL, JAVASCRIPT];
+
+# false positives exist
+# sometimes news.google.com loads youtube.com into elements on the page so 
+# in order for https://news.google.com to load, you need to enable youtube as well
+# entire site and all subdomains will be allowed with javascript enabled
+allowed[https://*.youtube.com, ALL];
+

@@ -1,0 +1,43 @@
+. $topsrcdir/openkiosk/config/common
+
+# for redistribution
+WIN32_REDIST_DIR="/c/Program Files (x86)/Microsoft Visual Studio 12.0/VC/redist/x86/Microsoft.VC120.CRT"
+
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/../opt-${OK_APP_NAME}-${OK_VERSION}-@CONFIG_GUESS@
+
+ac_add_options --enable-application=openkiosk
+
+# mk_add_options MOZ_PGO=1
+
+ac_add_options --enable-official-branding
+ac_add_options --enable-verify-mar
+
+# safeguard against someone forgetting to re-set EARLY_BETA_OR_EARLIER in
+# defines.sh during the beta cycle
+export BUILDING_RELEASE=1
+
+ac_add_options --enable-update-channel=${MOZ_UPDATE_CHANNEL}
+ac_add_options --enable-update-packaging
+ac_add_options --enable-jemalloc
+ac_add_options --enable-require-all-d3dc-versions
+
+# ac_add_options --disable-tests
+
+# Needed to enable breakpad in application.ini
+export MOZILLA_OFFICIAL=1
+
+export MOZ_TELEMETRY_REPORTING=1
+
+# . $topsrcdir/build/win32/mozconfig.vs2013-win64
+
+# Treat warnings as errors (modulo ALLOW_COMPILER_WARNINGS).
+ac_add_options --enable-warnings-as-errors
+
+# Enable Adobe Primetime and Widevine CDMs on 32-bit Windows in Mozilla builds.
+# Enabled here on the assumption that downstream vendors will not be using
+# these build configs.
+ac_add_options --enable-eme=adobe,widevine
+
+# Package js shell.
+export MOZ_PACKAGE_JSSHELL=1
+

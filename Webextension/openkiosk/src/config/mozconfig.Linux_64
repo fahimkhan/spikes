@@ -1,0 +1,43 @@
+# This file specifies the build flags for Kiosk.  
+
+# sb custom variables
+. $topsrcdir/openkiosk/config/common
+
+export BUILDING_RELEASE=1
+export MOZILLA_OFFICIAL=1
+export MOZ_TELEMETRY_REPORTING=0
+export MOZ_PACKAGE_JSSHELL=1
+
+export PKG_CONFIG_PATH=/usr/lib64/pkgconfig
+
+CC="/usr/local/bin/gcc"
+CXX="/usr/local/bin/g++"
+
+mk_add_options MOZ_MAKE_FLAGS="-s -j4"
+
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/../opt-${OK_APP_NAME}-${OK_VERSION}-@CONFIG_GUESS@
+
+ac_add_options --enable-application=openkiosk
+ac_add_options --enable-update-channel=release 
+ac_add_options --enable-update-packaging 
+ac_add_options --enable-crash-reporter
+ac_add_options --enable-release
+ac_add_options --enable-elf-hack
+ac_add_options --enable-default-toolkit=cairo-gtk2
+ac_add_options --enable-official-branding
+
+# build is failing when enabled
+# ac_add_options --enable-warnings-as-errors
+
+# apparently used for mozilla automation builds
+ac_add_options --enable-stdcxx-compat
+
+# enable debug symbols
+# export MOZ_DEBUG_SYMBOLS=1
+# ac_add_options --enable-debug-symbols
+# ac_add_options --disable-install-strip
+
+
+# This causes ld Memory exhausted error
+mk_add_options MOZ_PGO=1
+
