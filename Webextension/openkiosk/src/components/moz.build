@@ -1,1 +1,0 @@
-EXTRA_COMPONENTS += [ 'BrowserDOM.js', 'BrowserDOM.manifest' ]

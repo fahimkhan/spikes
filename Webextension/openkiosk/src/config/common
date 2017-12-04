@@ -1,2 +1,0 @@
-export OK_VERSION=`cat $topsrcdir/browser/config/version.txt`
-export OK_APP_NAME=`cat $topsrcdir/openkiosk/config/appname.txt | tr '[:upper:]' '[:lower:]'`
