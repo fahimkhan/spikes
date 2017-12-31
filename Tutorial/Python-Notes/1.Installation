@@ -1,0 +1,25 @@
+You don't need to configure/install anything before installing Python. The installation steps are as follows for various operating system.
+
+1. Linux Debian based system such as Ubuntu.
+
+There is no need to install, as Python come as pre packaged in the all latest Ubuntu version. However, if you are still using old debian based system you can run the below command in the command terminal.(Use Ctrl+Alt+t to open command terminal)
+
+sudo apt-get install python
+
+
+To check if the python is installed sucessfully, type 'python' in the command terminal it will give the python interactive shell to use python language.Also it will give the information about which python version is installed.
+
+
+
+2. Windows
+
+Download the python installer from below location.
+
+http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi
+
+Once it is downloaded , just run the installer by double clicking on it. After installation procedure you can open the windows cmd terminal to check if Python is installed successfully. Just type the 'python' in the terminal ,if installed properly it will give you the python interactive shell.
+
+
+So now you have installed the python. Let see what editor to be used for writing python code.
+
+
