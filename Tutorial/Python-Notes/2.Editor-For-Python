@@ -1,0 +1,61 @@
+You can write the python code in any text editor.Just to make sure it is python file save it as .py extension.
+
+The list of popular editor as follow.
+
+1. Vim : It is more popular among the Linux community. You can use it as general purpose editor. People use it for python,shell scripting,latex and many more programming language. 
+
+2. Sublime : It is cross platform editor. It has wide variety of plugin which can make it work as complete IDE.
+
+
+
+There are complete IDE available for python development.
+
+1. PyCharm : It is specifically build for python development. 
+
+2. eclipse : You need to add pydev plugin in order to work it as python development environment.
+
+
+
+For the tutorial, we are going to use the jupyter ipython notebook. It is preferred way for testing your code instead of writing code in a editor and saving its content and run it as python file,we directly write the code in the python notebook and execute there itself.
+
+
+Lets see how to install jupyter notebook. Before installing please make sure you have insalled python in your system.
+
+
+First install pip in your system which is kind of repository for python package. Once the pip is installed it will be easy to install any python packages. 
+
+Follow the below steps to install pip.
+
+1. Download  the file from https://bootstrap.pypa.io/get-pip.py
+2. From command line go to the directory where this file is located.
+3. Now if you are on linux system run the below command.
+
+sudo python get-pip.py
+
+It will ask you the sudo password to execute the script.
+
+
+If you are on windows systems then open the cmd terminal with admin access. You can right click on cmd application and run it as administrator. After that just go to location where file is downloaded. And execute the below script.
+
+python get-pip.py
+
+
+
+Once the pip package it installed you can easily installed any python packages.
+
+
+4. For windows run the below command with admin access
+	pip install jupyter
+
+	For Linux run the below command
+
+	sudo pip install jupyter
+
+
+
+To check if the jupyter notebook is installed properly. Type the below command in the terminal.
+
+jupyter notebook
+
+If it is installed properly, it will open the notebook in the default browser. We will see how to use the notebook in the next tutorial.
+
