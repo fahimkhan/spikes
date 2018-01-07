@@ -1,28 +1,25 @@
-You can write the python code in any text editor.Just to make sure it is python file save it as .py extension.
+You can write python code in any text editor like notepad,gedit or notepad++. While saving file make sure it is save with .py extension.
 
-The list of popular editor as follow.
+The list of popular free to use editors are as follow.
 
 1. Vim : It is more popular among the Linux community. You can use it as general purpose editor. People use it for python,shell scripting,latex and many more programming language. 
 
 2. Sublime : It is cross platform editor. It has wide variety of plugin which can make it work as complete IDE.
 
 
-
 There are complete IDE available for python development.
 
-1. PyCharm : It is specifically build for python development. 
+1. PyCharm : It is specifically build for python development.Basically it is a complete IDE.  
 
-2. eclipse : You need to add pydev plugin in order to work it as python development environment.
+2. eclipse : It has been used for multiple languages. But you can make it work as Python IDE. The only thing you have to do is to add the pydev plugin in the eclipse. Please check which pydev plugin version is compatible with your eclipse version else it will throw an error.
 
 
-
-For the tutorial, we are going to use the jupyter ipython notebook. It is preferred way for testing your code instead of writing code in a editor and saving its content and run it as python file,we directly write the code in the python notebook and execute there itself.
-
+For the tutorial, we are not going to use any of the IDE, instead we will use the jupyter ipython notebook. It is basically a notebook which open in a browser where you can create a python notebook and execute your python code there itself.And also you can save it on your hard disk and share you code with other as well.It is preferred way for testing your chunk of code. As our motive is to just create a tutorial then jupyter notebook will work great for us.
 
 Lets see how to install jupyter notebook. Before installing please make sure you have insalled python in your system.
 
 
-First install pip in your system which is kind of repository for python package. Once the pip is installed it will be easy to install any python packages. 
+First install pip in your system which is kind of repository for python package. Once the pip is installed it will be easy to install any other python packages. 
 
 Follow the below steps to install pip.
 
@@ -39,8 +36,6 @@ If you are on windows systems then open the cmd terminal with admin access. You 
 
 python get-pip.py
 
-
-
 Once the pip package it installed you can easily installed any python packages.
 
 
@@ -52,10 +47,14 @@ Once the pip package it installed you can easily installed any python packages.
 	sudo pip install jupyter
 
 
-
 To check if the jupyter notebook is installed properly. Type the below command in the terminal.
 
 jupyter notebook
 
 If it is installed properly, it will open the notebook in the default browser. We will see how to use the notebook in the next tutorial.
 
+Join the @labwork team and Upvote,follow and resteem!
+
+Comments are always appreciated!
+
+See you in the next tutorial till then "Happy Coding".
