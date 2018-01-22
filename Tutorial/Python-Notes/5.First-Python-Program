@@ -1,0 +1,29 @@
+As discussed earlier, you can write your code in any of the code editor or IDE of your choice. I will be using normal text editor and jupyter notebook for the rest of the tutorial. I personally like jupyter notebook as it is fastest way to write small program. However you should also know other editor or IDE as well which will be useful if you are writing big project in python. So without wasting any time lets create a simple python program which will calculate the area of rectangle.
+
+#area.py
+length = 4
+breadth = 5
+area = length*breadth
+print ("Area of rectangle is ", area)
+
+Save the above code in a file and say it "area.py" .
+
+Now open the command terminal and go to the location where you have save this file. And run the below command
+
+python area.py
+
+It will calculate the area and show the output as 
+
+('Area of rectangle is ', 20)
+
+
+Please notice the indentation we have not use any tab or space as we just have one code block which need to be executed sequentially.
+
+
+Hope you got the idea how to write a simple code in python and execute it from the terminal. We will see you in the next tutorial till then "Happy Coding"
+
+
+Please join the @labwork team and Up vote,follow and resteem.
+
+Comments are always appreciated. 
+
