@@ -1,0 +1,30 @@
+In this tutorial we will talk about indentation. In most of the programming language we use curly brackets to separate the code block from each other such as conditional statement and functions. For example in C and Java we use curly brackets as shown below.
+
+if(condition)
+{
+	<write your code here>
+}
+else{
+	<write your code here>
+}
+
+You can see that to separate code block written in if & else statement we have use the curly bracket.
+
+This is not the case in case of python. We use the indentation in python to separate the code block. It can be a tab or a space. It is always better to use one type of indentation throughout the project. Please see the example of indentation in python.
+
+if(condition):
+	print "Hello"
+else:
+	print "World"
+
+
+As you see after th conditional statement I am writing ":" which is as good as "{" in other language.But there is no "}"(closing brackets) for this we just change the indentation to let the compiler know it is the end of the statement. Here we have given tab as indentation. You can use space as well but it is better practice to use a tab to make it in more readable format.
+
+Please note that if your indentation is not proper it will throw an error. "IndentationError: unexpected indent"
+
+Hope you got the understanding of indentation. See you in the next tutorial till then "Happy Coding"
+
+
+Please join the @labwork team and Up vote,follow and resteem.
+
+Comments are always appreciated. 
