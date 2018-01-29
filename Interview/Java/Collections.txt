@@ -1,7 +1,0 @@
-########################Collections#####################
-
-Java collections framework ship with jdk framework.
-Collections implement data strcuture easily.
-
-
-#################### Defining and Iterating Collections ##########################

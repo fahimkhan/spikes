@@ -1,5 +1,0 @@
-Jhon,28,4.8
-Cersi,30,3.9
-Jon Snow,27,5.0
-Arya,20,4.2
-Sansa,28,5

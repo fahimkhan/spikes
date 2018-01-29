@@ -1,0 +1,75 @@
+Every programming language has basic elements which are collection of literals,variables and keywords. in this tutorial we will explain what these terms means.
+
+Literals:
+
+It is string or numner that directly appears in the program. e.g
+
+15 			#Integer literal
+21.0 		#Floating literal
+5j  		#Complex number literal
+'Hello' 	#String literal
+"World"		#String literal
+
+'''
+First line
+Second line		##Triple quoted string literal
+Third line
+'''
+
+In python you can use both single or double quote to represent string. For multiple line you can use triple quoted string which again can be single quote or double quote.
+
+
+Variables:
+
+It is use to store data in a program. To set it you choose the variable name and equate it to value of variable. e.g
+
+a = 10
+b = "Hello World!!!"
+
+To know the type of the variable you can use type function as follow.
+
+type(a)
+
+A vraiable can be start with _(indescore) e.g
+
+_a = 10
+
+It cannot start with number.
+
+Keywords:
+Python has 30 keywords which are identifiers that python reserve for special use.Keywords contain lower case only. you cannot use keyword as regural identifiers. Following are some keywords example.
+
+and, assert, break, class, continue, def, del, elif, else, except, exec, finally, for, from, global, if, import, in, is, lambda, not
+
+
+Comments:
+
+Comments are line used for documentation for other programmer to understand the code flow.
+A comment begins by a hash sign (#). All characters after the # and up to the physical line end are part of the comment. 
+For example,
+# This program computes area of rectangle
+a = b+c # values of b and c are added and stored in a
+
+Continuation Lines:
+
+A physical line is a line that you see in a program. A logical line is a single statement in Python terms. In Python, the end of a physical line marks the end of most statements, unlike in other languages, where usually a semicolon (;) is used to mark the end of statements. When a statement is too long to fit on a single line, you can join two adjacent physical lines into a logical line by ensuring that the first physical line has no comment and ends with a backslash (\). Besides this, Python also joins adjacent lines
+into one logical line if an open parenthesis ( ( ), bracket ( [ ), or brace ( { ) is not closed. The lines after the first one in a logical line are known as continuation lines. The indentation is not applied to continuation lines but only to the first physical line of each logical line.
+
+Printing:
+
+To print on terminal you can use print statement. e.g
+
+print "Hello World"
+
+You can also print the variable value. e.g
+a = 10
+print "Area of rectangle. "+str(a)
+
+We can use '+' sign to concatenat two string.
+
+Hope you like this tutorial. See you in the next tutorial till then "Happy Coding".
+
+Please join the @labwork team and Up vote,follow and resteem.
+
+Comments are always appreciated. 
+

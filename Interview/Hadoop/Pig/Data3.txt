@@ -1,2 +1,0 @@
-[name#Fahim]
-[age#28]
