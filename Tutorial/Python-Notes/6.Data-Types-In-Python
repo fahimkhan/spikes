@@ -1,0 +1,56 @@
+Previously we write our first program in Python. In this tutorial we will go through different data types available in Python.In python everything is a object on which we can perform different operation such as concatenation,addition etc. However objects's data types decide which operation is applicable on particular data types.
+
+The list of data types are as follows:
+
+**Integer :**  It is 32 bit. The range is from  -2^32 to 2^32-1.
+
+**Long Integer :** It has unlimited precision,however it depends how much your computer memory can hold it.
+
+**Floating point number :** It is 64 bit and also known as double precision.
+
+**Boolean :** It hold only two value True or False.
+
+**Complex number:**  It has real and imaginary part and both the part is represented as floating number.An imaginary part is represented by 'j'. e.g 2+4j
+
+**String :** It is sequences of **unicode** character.
+
+**Lists :** Ordered sequences of values.
+
+**Tuples :** It is also ordered sequence but with immutable value. which means once given a value you can't update it. You can create the new tuple using same but you can't update it.
+
+**Sets :** It is an Unordered collection of values.
+
+**Dictionaries :** It is an Unordered collections of key and value.
+
+Now lets see how to create a variable of particular data type. Unlike other language in python there is no need to specify the type of variable. Python interpreter will automatically decide its type. That's why python is called as **"Duck typing"** language.
+
+
+a = 1
+Here variabale a has value of 1 and its type by default is int.
+
+b = 2.0 
+b is floating point. 
+
+Others examples are as follows.
+c = True # Boolean
+d = "Hello world" #String
+e = ["Hello","World",2.0] #List
+f = (1,"Hello",) #Tuple
+g = set([1,2,3]) #Set
+h = {1:"Value1",2:"Value2"}
+
+To check the type of variable use type function in python as show below.
+type(a) ##Check type of variable a
+
+It is always better practice to check the type of the variable. It is important because if you use any API or any function which has some return value then it is better to check its type before performing any operation on that variable.
+
+Hope you like this tutorial. We will see each data type in detail in upcoming tutorial till then "Happy Coding".
+
+
+Please join the @labwork team and Up vote,follow and resteem.
+
+Comments are always appreciated. 
+
+
+
+
