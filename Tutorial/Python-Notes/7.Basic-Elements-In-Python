@@ -2,7 +2,7 @@ Every programming language has basic elements which are collection of literals,v
 
 Literals:
 
-It is string or numner that directly appears in the program. e.g
+It is string or number that directly appears in the program. e.g
 
 15 			#Integer literal
 21.0 		#Floating literal
