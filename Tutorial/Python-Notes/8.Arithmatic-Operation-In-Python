@@ -1,4 +1,4 @@
-Python provides different arithmatic operators for performaing diferent operations on numerical data.
+Python provides different arithmetic operators for performing different operations on numerical data.
 
 The list of arithmatic operation used in python is as follow.
 
@@ -7,18 +7,19 @@ x - y	#Subtraction
 x * y 	#Multiplication
 x / y   #Division
 x // y 	#Truncating division
-x ** y 	#Exponentiation. Sets x to the power y; i.e.,
+x ** y 	#Exponentiation. Sets x to the power y;
 x % y 	#Modulo operator
 –x 		#Unary minus
 +x 		#Unary plus
 
+Please note that x and y are variable name holding proper value. That means you can't do x/y if either of them is string. It will throw an error.
 
-Division :  It return the true interge value. e.g 2/3 = 0.67 will result in integer part of the result i.e 0. However if one of them is floating point it will give floating point result. e.g 2.0/3 = 0.67. But truncating division operator will always return integer part and ignoring remainder no matter if one of them is floating or not.
+Division :  It return the true integer value. e.g 2/3 = 0.67 will result in integer part of the result i.e 0. However if one of them is floating point it will give floating point result. e.g 2.0/3 = 0.67. But truncating division operator(//) will always return integer part and ignoring remainder no matter if one of them is floating or not.
 
-Exponentiation : To apply exponentiation , you can use double asteriks **. e.g a**b. There is in built python function called pow() to calculate the exponentiation. e.g pow(2,3)
+Exponentiation : To apply exponentiation , you can use double asteriks. e.g a**b. There is in built python function called pow() to calculate the exponentiation. e.g pow(2,3)
 
 
-Hope you get the idea about arithmatic operation in python. See you in the next tutorial till then "Happy Coding".
+Hope you get the idea about arithmetic operation in python. See you in the next tutorial till then "Happy Coding".
 
 Please join the @labwork team and Up vote,follow and resteem.
 

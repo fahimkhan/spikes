@@ -30,7 +30,7 @@ To know the type of the variable you can use type function as follow.
 
 type(a)
 
-A vraiable can be start with _(indescore) e.g
+A variable can be start with _ (underscore) e.g
 
 _a = 10
 
