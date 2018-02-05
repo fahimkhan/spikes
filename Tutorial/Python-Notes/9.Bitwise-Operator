@@ -1,0 +1,52 @@
+Welcome to the series of python tutorial. In this tutorial we will discuss about bitwise tutorial in Python.
+
+We all know that everything in machine is in the form of 0 and 1 which is actually called as binary form of numbers.e.g the number 3 can be represented as 4 digit binary number as 0011.
+
+The bitwise operator operates on such binary number to give the desired result. Please note that this binary operators can only be applied to integers and long integers.
+
+Let's consider x and y are two operands.The following shifting and binary operation can be performed on this number.
+
+1.Binary shift left(x<<y) : This return x with bit shifted to the left by y places.The digit is padded with 0s on right side. This operation is same as multiplying x by 2**y. e.g if we have two value say a=5 and b=2 then result of a<<b would be 20. We will see how to actually get the binary digits of this integer number in the later part of this tutorial. Lets first discuss all the available operations.
+
+2.Binary shift right(x >> y) : It is just opposite. it return x with bit shifted to right by y place. Or we can say dividing x by 2**y.
+
+3.Bitwise AND(x & y): The corresponding bit of x and y is compared. It return 1 if the corresponding bit is 1 other wise it return 0.
+
+4.Bitwise OR(x|y): It return 0 if both th corresponding bit is 0 other wise it return 1. i.e either of x or y is 1.  
+
+5.Bitwise exclusive AND(x^y) : It returns 1 if either x or y is 1; otherwise it returns 0 . i.e the operator returns 0 if the corresponding bits of x and y are the same.
+
+6.Bitwise inversion(~x): It returns the complement of x ; i.e., the binary digit converts from 1 to 0 and 0 to 1.
+
+
+Now lets see how to get the binary number from integer number. There is in-built function in python called 'bin' which convert the decimal/integer number into binary number as shown below.
+
+bin(2)
+
+It returns '0b10'. The '0b' in the result represent that it is binary form of the number.
+
+Here is the simple program which cover all the bitwise operator.
+
+a=2
+b=3
+
+c = a<<b
+d = a>>b
+e = a&b
+f = a|b
+g = a^b
+h = ~a
+
+print("Left shift operation result: ",c)
+print("Right shift operation result: ",d)
+print("AND operation result : ",e)
+print("OR operation result : ",f)
+print("Exclusive AND  operation result : ",g)
+print("Negation or Inversion of number :",h)
+
+
+That's it for this tutorial. We will see you in the next tutorial till then "Happy Coding".
+
+Please join the @labwork team and Up vote,follow and resteem.
+
+Comments are always appreciated. 
