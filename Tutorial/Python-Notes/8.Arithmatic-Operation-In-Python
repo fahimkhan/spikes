@@ -16,7 +16,7 @@ Please note that x and y are variable name holding proper value. That means you 
 
 Division :  It return the true integer value. e.g 2/3 = 0.67 will result in integer part of the result i.e 0. However if one of them is floating point it will give floating point result. e.g 2.0/3 = 0.67. But truncating division operator(//) will always return integer part and ignoring remainder no matter if one of them is floating or not.
 
-Exponentiation : To apply exponentiation , you can use double asteriks. e.g a**b. There is in built python function called pow() to calculate the exponentiation. e.g pow(2,3)
+Exponentiation : To apply exponentiation , you can use double asterisk. e.g a**b. There is in built python function called pow() to calculate the exponentiation. e.g pow(2,3)
 
 
 Hope you get the idea about arithmetic operation in python. See you in the next tutorial till then "Happy Coding".
