@@ -1,0 +1,42 @@
+In this tutorial we will discuss about complex number. We have learn in math that complex number is combination of real and imaginary number.The imaginary part is multiple of square root of minus 1. It is denoted as j. For example 2+3j where 2 is real part of number and 3j is imaginary part of number.
+
+In python you can assign a complex number to variable as shown below.
+
+a = 2 + 3.5j
+
+To access the real and imaginary part of complex number you can use real and imag attributes as shown below.
+
+a.real
+a.imag
+
+It will return 2 and 3.5 respectively.
+
+Let see some arithmetic operation in complex number.
+
+a = 2 + 3.5j
+b = 1 - 0.5j
+
+print("Addition of two complex number is ",a+b)
+print("Subtraction of two complex number is ",a-b)
+print("Multiplication of two number is ",a*b)
+print("Division of two number is ",a/b)
+
+
+The addition and subtraction are linearly additive that means real number will be added/subtracted together and imaginary number will be added/subtracted together.
+
+In case of multiplication real number of 'a' will be multiplied with each part of 'b' i.e real and imaginary. Similarly imaginary part of 'a' will be multiplied with each part of 'b'. Here when you multiplied two imaginary number it return a real number as j is sqrt(-1) so j*j will return a value of -1. 
+
+In case of division we have to multiply complex conjugate of denominator with the complex number in order to get only real part in the denominator. A complex conjugate of number is just having reverse imaginary part. e.g The complex conjugate of 2 + 3j is 2 - 3j.
+
+Few more thing to note that.
+1. Real+Imaginary = Complex Number
+2. Real*Imaginary = Imaginary Number
+3. Real/Imaginary = Imaginary Number
+4. Imaginary/Imaginary = Real Number
+5. Imaginary*Imaginary = Real Number
+
+That's it for this tutorial. We will see you in the next tutorial till then "Happy Coding".
+
+Please join the @labwork team and Up vote,follow and resteem.
+
+Comments are always appreciated. 
