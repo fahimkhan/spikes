@@ -1,0 +1,72 @@
+Welcome to the basic python tutorial series. In this tutorial we will discuss about the conditional statement in python. In programming language, there is need to control the order of execution of statement. It can be achieve using if..else statement in python.
+
+The if..else block decides which statement need to be execute based on the logical expression included. The general syntax is as follow.
+
+if (expression):
+	execution block 1
+else:
+	execution block 2
+
+If the expression evaluate to True then block 1 will be executed else block 2 will be executed.In if..else conditional statement else is optional. You can ignore else statement if you do not want to execute any code in block 2.
+
+Let see the example.
+
+a = 5
+b = 2
+
+if(a>b):
+	print "a is greater than b"
+else:
+	print "b is greater than a" 
+
+
+Nested if..else statement: We can have multiple condition check in if else statement. In order to achieve it we can use nested if else statement as shown below.
+
+a = 2 
+b = 2
+
+if(a>b):
+	print "a is greater than b"
+elif(b>a):
+	print "b is greater than a" 
+else:
+	print "a is equal to b"
+
+
+The output of above code will be "a is equal to b".
+
+
+There can be scenario where it require to evaluate multiple logical expression. This can be achieve using logical operator such as 'and','or' etc. as shown below.
+
+
+a = 5
+b = 2
+c = 3
+
+if(a>b and a>c):
+	print "a is greatest number"
+else:
+	print "a is not greatest number" 
+
+
+The list of comparison operator is as follow.
+
+< Less than
+> Greater than
+<= Less than or equal to
+>= Greater than or equal to
+== Equal to
+!= Not equal to
+
+The list of logical operator which can be used with the multiple comparison operator is as follow.
+
+and : All the logical expression is evaluated to True
+or :  At least one of the logical expression is evaluated to True
+not : Negation of evaluated logical expression.i.e if logical expression is True it will take it as False and vice versa.
+
+
+That's it for this tutorial. We will see you in the next tutorial till then "Happy Coding".
+
+Please join the @labwork team and Up vote,follow and resteem.
+
+Comments are always appreciated. 
