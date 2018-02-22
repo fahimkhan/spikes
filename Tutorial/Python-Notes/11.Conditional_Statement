@@ -9,7 +9,7 @@ else:
 
 If the expression evaluate to True then block 1 will be executed else block 2 will be executed.In if..else conditional statement else is optional. You can ignore else statement if you do not want to execute any code in block 2.
 
-Let see the example.
+Let's see the example.
 
 a = 5
 b = 2
