@@ -1,0 +1,48 @@
+For checking the performance of the code we generally look for the number of steps taken to perform an operation rather than the time taken to compute the operation because based on the available hardware the time may vary for the same piece of code.
+
+
+##############Operations in Array
+1. Reading
+
+Reading an element from the list or array is one step if fetching based on index. If you declare an array then computer assign a dedicated memory area to your array.Also it know the starting address of your array so if you search any element with index it will directly go to that memory area and then to particular memory cell to fetch the data. So it is just one step.  
+
+
+
+2. Searching
+
+It start searching from index 0 till it find the value in the array.So it may take one step to n number of step where n is length of an array.
+So in any case search is less efficient than reading.
+
+3. Insertion
+
+It actually depends at what index you want to add the element.
+It will take just one step if you add it after last element of the array. However if you want to add it at the beginning or at the middle of the array then number of steps will depend.As it will have to shift the element to the right to get a room for new element.
+
+The worst scenario is inserting at the beginning of an array.It can take up to N + 1 steps for an array containing N elements. 
+
+
+3. Deletion
+
+It also take multiple steps. One steps to delete an element and the remaining steps is to shift the element to the left.
+For an array containing N elements, the maximum number of steps that deletion would take is N steps.
+
+
+
+
+
+####Ordered Array
+Same as Array but values are kept in order.
+
+1.Reading :
+It is same as the normal array.
+
+2.Insertion
+when inserting into an ordered array, we need to always conduct a search before the actual insertion to determine the correct spot for the insertion to maintain its order. That is one key difference (in terms of efficiency) between a standard array and an ordered array.
+
+While insertion is less efficient by an ordered array than in a regular array, the ordered array has a secret superpower when it comes to the search operation. 
+
+
+3.Search:
+
+
+

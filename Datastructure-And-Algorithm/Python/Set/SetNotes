@@ -1,0 +1,13 @@
+Set is data structure that do not allow the duplicate element.
+
+#####Operations
+1. Reading : It takes exactly one steps. Same as array.
+2. Searching : It take one step to n number of step where n is length of an array. Same as array.
+3. Deletion : One steps to delete an element and the remaining steps is to shift the element to the left.Same as array
+
+4. Insertion : It is some what different than array.
+
+Every insert require search first to check if any duplicate data is present.Insertion into a set in a best-case scenario will take N + 1 steps for N elements. This is because there are N steps of search to ensure that the value doesn’t already exist within the set, and then one step for the actual insertion.
+In a worst-case scenario, where we’re inserting a value at the beginning of a set, the computer needs to search N cells to ensure that the set doesn’t already contain that value, and then another N steps to shift all the data to the right, and another final step to insert the new value. That’s a total of 2N + 1 steps.
+
+It means that insertion in array is more efficient than insertion in sets
