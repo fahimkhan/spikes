@@ -43,6 +43,6 @@ While insertion is less efficient by an ordered array than in a regular array, t
 
 
 3.Search:
-
+Less steps than unordered array. We can use binary search to further optimize the search operation.
 
 
