@@ -1,5 +1,5 @@
 
-##Efficiency O(N2)
+##Efficiency O(N**2)
 
 def bubble_sort(array_list):
 	unsorted_until_index = len(array_list) - 1 
