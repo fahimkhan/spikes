@@ -1,0 +1,19 @@
+
+Stack and Queues are simply arrays with restrictions. Yet, these restrictions are exactly what make them so elegant.
+
+Stack:
+
+1. Data can only be inserted at the end of a stack.
+2. Data can only be read from the end of a stack.
+3. Data can only be removed from the end of a stack.
+
+Stack follows LIFO rule.
+
+
+Queues:
+1. Data can only be inserted at the end of a queue.
+2. Data can only be read from the front of a queue.
+3. Data can only be removed from the front of a queue.
+
+It follows the FIFO
+
