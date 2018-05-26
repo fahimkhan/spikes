@@ -1,6 +1,0 @@
-Big O Notation:
-
-O(1)  -  Take constant number steps. It can be 1 or more than 1 but should always be constant.
-O(N)  - Take N number of steps to complete the operation in worst case scenario.Best case would be 1 step. e.g Linear search algorithm.
-O(log N) - This type of algorithm is also known as having a time complexity of log time.Simply put, O(log N) is the Big O way of describing an algorithm that increases one step each time the data is doubled.e.g binary search algorithm.Logarithms are the inverse of exponents. In Big O notation world, whenever we say O(log N), it's actually shorthand for saying O(log2 N)
-
